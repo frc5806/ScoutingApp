@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
 class ViewController: UIViewController {
+    
+    var peerID: MCPeerID!
+    var mcSession: MCSession!
+    var mcAdvertiserAssistant: MCAdvertiserAssistant!
 
     // MARK: Properties
     @IBOutlet weak var autonomousField: UITextField!
     
-    let colorService = ColorServiceManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorService.delegate = self
+        peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
+        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .Required)
+        mcSession.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -28,30 +33,6 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func setAutonomous(sender: UIButton) {
-        colorService.sendColor("autonomous")
-    }
-    
-}
-
-extension ColorSwitchViewController : ColorServiceManagerDelegate {
-    
-    func connectedDevicesChanged(manager: ColorServiceManager, connectedDevices: [String]) {
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            self.connectionsLabel.text = "Connections: \(connectedDevices)"
-        }
-    }
-    
-    func colorChanged(manager: ColorServiceManager, colorString: String) {
-        NSOperationQueue.mainQueue().addOperationWithBlock {
-            switch colorString {
-            case "red":
-                self.changeColor(UIColor.redColor())
-            case "yellow":
-                self.changeColor(UIColor.yellowColor())
-            default:
-                NSLog("%@", "Unknown color value received: \(colorString)")
-            }
-        }
     }
     
 }
