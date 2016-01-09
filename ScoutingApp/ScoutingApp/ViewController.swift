@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: Properties
+    @IBOutlet weak var autonomousField: UITextField!
+    
+    let colorService = ColorServiceManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: Actions
+    @IBAction func setAutonomous(sender: UIButton) {
+    }
+    
 }
 

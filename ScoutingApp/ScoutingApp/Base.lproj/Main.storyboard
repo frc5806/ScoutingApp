@@ -47,6 +47,9 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="setAutonomous:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Oeh-Sm-NLp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Average Points Scored:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo8-PD-pVb">
                                 <rect key="frame" x="16" y="49" width="181" height="21"/>
@@ -81,6 +84,9 @@
                             <constraint firstItem="2mn-Ps-BV5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pvY-Ad-amX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="autonomousField" destination="BoK-el-oFJ" id="ICT-At-Hpr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
