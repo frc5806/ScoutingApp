@@ -19,6 +19,8 @@ class ColorServiceManager : NSObject {
     private let myPeerId = MCPeerID(displayName: UIDevice.currentDevice().name)
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     
+    var delegate : ColorServiceManagerDelegate?
+    
     override init() {
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ColorServiceType)
         super.init()
@@ -41,6 +43,18 @@ class ColorServiceManager : NSObject {
         session?.delegate = self
         return session
     }()
+    
+    func sendColor(colorName : String) {
+        NSLog("%@", "sendColor: \(colorName)")
+        
+        if session.connectedPeers.count > 0 {
+            var error : NSError?
+            if !self.session.sendData(colorName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false), toPeers: session.connectedPeers, withMode: MCSessionSendDataMode.Reliable, error: &error) {
+                NSLog("%@", "\(error)")
+            }
+        }
+        
+    }
     
 }
 
@@ -115,6 +129,17 @@ extension ColorServiceManager : MCSessionDelegate {
     
     func session(session: MCSession!, didStartReceivingResourceWithName resourceName: String!, fromPeer peerID: MCPeerID!, withProgress progress: NSProgress!) {
         NSLog("%@", "didStartReceivingResourceWithName")
+    }
+    
+    func session(session: MCSession!, peer peerID: MCPeerID!, didChangeState state: MCSessionState) {
+        NSLog("%@", "peer \(peerID) didChangeState: \(state.stringValue())")
+        self.delegate?.connectedDevicesChanged(self, connectedDevices: session.connectedPeers.map({$0.displayName}))
+    }
+    
+    func session(session: MCSession!, didReceiveData data: NSData!, fromPeer peerID: MCPeerID!) {
+        NSLog("%@", "didReceiveData: \(data.length) bytes")
+        let str = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+        self.delegate?.colorChanged(self, colorString: str)
     }
     
 }

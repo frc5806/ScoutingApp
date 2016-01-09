@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        colorService.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -27,7 +28,30 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func setAutonomous(sender: UIButton) {
+        colorService.sendColor("autonomous")
     }
     
 }
 
+extension ColorSwitchViewController : ColorServiceManagerDelegate {
+    
+    func connectedDevicesChanged(manager: ColorServiceManager, connectedDevices: [String]) {
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            self.connectionsLabel.text = "Connections: \(connectedDevices)"
+        }
+    }
+    
+    func colorChanged(manager: ColorServiceManager, colorString: String) {
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            switch colorString {
+            case "red":
+                self.changeColor(UIColor.redColor())
+            case "yellow":
+                self.changeColor(UIColor.yellowColor())
+            default:
+                NSLog("%@", "Unknown color value received: \(colorString)")
+            }
+        }
+    }
+    
+}
