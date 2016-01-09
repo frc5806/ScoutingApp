@@ -48,13 +48,13 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Average Points Scored:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo8-PD-pVb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Average Points Scored:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo8-PD-pVb">
                                 <rect key="frame" x="16" y="49" width="181" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="9000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R63-At-2fi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="9000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R63-At-2fi">
                                 <rect key="frame" x="16" y="78" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -63,16 +63,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GWl-Rr-zJs" firstAttribute="top" secondItem="uGD-B4-Rux" secondAttribute="bottom" constant="215" id="4kB-3E-7tR"/>
+                            <constraint firstItem="R63-At-2fi" firstAttribute="width" secondItem="XFf-dT-L2c" secondAttribute="width" id="Feo-rf-3KK"/>
+                            <constraint firstItem="R63-At-2fi" firstAttribute="width" secondItem="2mn-Ps-BV5" secondAttribute="width" id="HRg-Ji-lzO"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="centerX" secondItem="uGD-B4-Rux" secondAttribute="centerX" id="PXW-Kd-KjF"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="leading" secondItem="2mn-Ps-BV5" secondAttribute="leading" id="RUH-pz-kYV"/>
                             <constraint firstItem="XFf-dT-L2c" firstAttribute="top" secondItem="0MM-Hf-rNZ" secondAttribute="bottom" id="Tmx-yq-gWH"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="width" secondItem="2mn-Ps-BV5" secondAttribute="width" id="UIc-08-NXb"/>
+                            <constraint firstItem="R63-At-2fi" firstAttribute="width" secondItem="BoK-el-oFJ" secondAttribute="width" id="aUz-Js-GYT"/>
                             <constraint firstItem="uGD-B4-Rux" firstAttribute="top" secondItem="BoK-el-oFJ" secondAttribute="bottom" constant="8" symbolic="YES" id="cJY-W4-EFb"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="width" secondItem="uGD-B4-Rux" secondAttribute="width" id="d1q-0u-zwp"/>
+                            <constraint firstItem="R63-At-2fi" firstAttribute="width" secondItem="zo8-PD-pVb" secondAttribute="width" id="ep1-7K-hCb"/>
                             <constraint firstItem="XFf-dT-L2c" firstAttribute="centerX" secondItem="BoK-el-oFJ" secondAttribute="centerX" id="epG-fe-MA5"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="top" secondItem="2mn-Ps-BV5" secondAttribute="bottom" constant="8" symbolic="YES" id="gf7-TS-cH6"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="width" secondItem="XFf-dT-L2c" secondAttribute="width" id="hB5-Sw-ghR"/>
                             <constraint firstItem="BoK-el-oFJ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="k3F-6m-IaK"/>
+                            <constraint firstItem="R63-At-2fi" firstAttribute="width" secondItem="uGD-B4-Rux" secondAttribute="width" id="mfc-cP-HX4"/>
                             <constraint firstItem="2mn-Ps-BV5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="pvY-Ad-amX"/>
                         </constraints>
                     </view>
