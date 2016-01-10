@@ -54,11 +54,15 @@ MCSessionDelegate {
         
         var error : NSError?
         
-        self.session.sendData(msg, toPeers: self.session.connectedPeers,
-            withMode: MCSessionSendDataMode.Unreliable, error: &error)
+        do {
+            try self.session.sendData(msg, toPeers: self.session.connectedPeers,
+                withMode: MCSessionSendDataMode.Unreliable)
+        } catch var error1 as NSError {
+            error = error1
+        }
         
         if error != nil {
-            print("Error sending data: \(error?.localizedDescription)")
+            print("Error sending data: \(error?.localizedDescription)", terminator: "")
         }
         
         self.updateChat(self.autonomousField.text, fromPeer: self.peerID)
