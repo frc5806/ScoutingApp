@@ -156,8 +156,6 @@
 		81EA92F51C417D79007A7DFC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0720;
-				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = HMFRC;
 				TargetAttributes = {
