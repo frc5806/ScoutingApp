@@ -9,6 +9,7 @@
 import Foundation
 import MultipeerConnectivity
 
+/*
 class ColorServiceManager : NSObject {
     
     // Service type must be a unique string, at most 15 characters long
@@ -31,9 +32,9 @@ class ColorServiceManager : NSObject {
     
 }
 
-extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
+extension ColorServiceManager {//: MCNearbyServiceAdvertiserDelegate {
     
-    func advertiser(advertiser: MCNearbyServiceAdvertiser!, didNotStartAdvertisingPeer error: NSError!) {
+    func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
         NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
     }
     
@@ -42,3 +43,4 @@ extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
     }
     
 }
+*/
