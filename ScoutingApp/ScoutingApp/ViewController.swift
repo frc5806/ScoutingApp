@@ -11,6 +11,8 @@ import MultipeerConnectivity
 
 class ViewController: UIViewController{
     
+    let colorService = ColorServiceManager()
+    
     // MARK: Properties
     @IBOutlet weak var autonomousField: UITextField!
     
