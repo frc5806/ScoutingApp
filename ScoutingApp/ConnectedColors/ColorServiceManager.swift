@@ -1,10 +1,7 @@
 //
 //  ColorServiceManager.swift
 //  ConnectedColors
-//
-//  Created by Ralf Ebert on 28/04/15.
-//  Copyright (c) 2015 Ralf Ebert. All rights reserved.
-//
+
 
 import Foundation
 import MultipeerConnectivity
@@ -25,7 +22,7 @@ class ColorServiceManager : NSObject {
     var delegate : ColorServiceManagerDelegate?
     
     override init() {
-        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: ColorServiceType)
+        self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: ["HM": "Lions"], serviceType: ColorServiceType)
 
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ColorServiceType)
 
@@ -74,7 +71,7 @@ extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
     
     func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: ((Bool, MCSession) -> Void)) {
         
-        NSLog("%@", "didReceiveInvitationFromPeer \(peerID)")
+        NSLog("%@", "didReceiveInvitationFromPeer \(peerID.displayName)")
         invitationHandler(true, self.session)
     }
 
@@ -87,13 +84,16 @@ extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
     }
     
     func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
-        NSLog("%@", "foundPeer: \(peerID)")
-        NSLog("%@", "invitePeer: \(peerID)")
-        browser.invitePeer(peerID, toSession: self.session, withContext: nil, timeout: 10)
+        NSLog("%@", "foundPeer: \(peerID.displayName)")
+        if (info! == ["HM" : "Lions"]) {
+            NSLog("%@", "Secret password authenticated!")
+            NSLog("%@", "invitePeer: \(peerID.displayName)")
+            browser.invitePeer(peerID, toSession: self.session, withContext: nil, timeout: 10)
+        } else { NSLog("%@", "Authentication failed: \(peerID.displayName)") }
     }
     
     func browser(browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
-        NSLog("%@", "lostPeer: \(peerID)")
+        NSLog("%@", "lostPeer: \(peerID.displayName)")
     }
     
 }
@@ -114,13 +114,13 @@ extension MCSessionState {
 extension ColorServiceManager : MCSessionDelegate {
     
     func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
-        NSLog("%@", "peer \(peerID) didChangeState: \(state.stringValue())")
+        NSLog("%@", "peer \(peerID.displayName) didChangeState: \(state.stringValue())")
         self.delegate?.connectedDevicesChanged(self, connectedDevices: session.connectedPeers.map({$0.displayName}))
     }
     
     func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
-        NSLog("%@", "didReceiveData: \(data.length) bytes")
         let str = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
+        NSLog("%@", "didReceiveData: \(str)")
         self.delegate?.colorChanged(self, colorString: str)
     }
     
