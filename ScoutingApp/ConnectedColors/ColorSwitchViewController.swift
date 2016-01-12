@@ -8,15 +8,18 @@
 
 import UIKit
 
-class ColorSwitchViewController: UIViewController {
+class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var connectionsLabel: UILabel!
+    @IBOutlet weak var autonomousLabel: UILabel!
+    @IBOutlet weak var autonomousField: UITextField!
     
     let colorService = ColorServiceManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorService.delegate = self
+        self.autonomousField.delegate = self
     }
 
     @IBAction func redTapped(sender: AnyObject) {
@@ -29,10 +32,20 @@ class ColorSwitchViewController: UIViewController {
         colorService.sendColor("yellow")
     }
     
+    @IBAction func autonomousButton(sender: AnyObject) {
+        autonomousLabel.text = autonomousField.text;
+        //colorService.sendColor
+    }
+    
     func changeColor(color : UIColor) {
         UIView.animateWithDuration(0.2) {
             self.view.backgroundColor = color
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }
