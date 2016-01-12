@@ -85,7 +85,8 @@ extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
     
     func browser(browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         NSLog("%@", "foundPeer: \(peerID.displayName)")
-        if (info! == ["HM" : "Lions"]) {
+        if (info == nil) { NSLog("%@", "Authentication failed: \(peerID.displayName)") }
+        else if (info! == ["HM" : "Lions"]) {
             NSLog("%@", "Secret password authenticated!")
             NSLog("%@", "invitePeer: \(peerID.displayName)")
             browser.invitePeer(peerID, toSession: self.session, withContext: nil, timeout: 10)

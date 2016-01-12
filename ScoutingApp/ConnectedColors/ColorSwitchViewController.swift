@@ -31,7 +31,7 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func autonomousButton(sender: AnyObject) {
         autonomousLabel.text = autonomousField.text;
-        //colorService.sendColor
+        colorService.sendColor(autonomousField.text!);
     }
     
     func changeColor(color : UIColor) {
@@ -58,12 +58,13 @@ extension ColorSwitchViewController : ColorServiceManagerDelegate {
     func colorChanged(manager: ColorServiceManager, colorString: String) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             switch colorString {
-            case "red":
-                self.changeColor(UIColor.redColor())
-            case "yellow":
-                self.changeColor(UIColor.yellowColor())
+            //case "red":
+                //self.changeColor(UIColor.redColor())
+            //case "yellow":
+                //self.changeColor(UIColor.yellowColor())
             default:
-                NSLog("%@", "Unknown color value received: \(colorString)")
+                //NSLog("%@", "Unknown color value received: \(colorString)")
+                self.autonomousLabel.text = colorString;
             }
         }
     }
