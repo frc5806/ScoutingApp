@@ -29,11 +29,18 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34T-h9-UbI">
-                                <rect key="frame" x="20" y="83" width="106" height="21"/>
+                                <rect key="frame" x="20" y="83" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="074-ZI-TOc">
+                                <rect key="frame" x="128" y="518" width="65" height="30"/>
+                                <state key="normal" title="Summary"/>
+                                <connections>
+                                    <action selector="switchOne:" destination="ax0-WZ-lTZ" eventType="touchUpInside" id="GkS-4w-gqw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -43,11 +50,31 @@
                         <outlet property="autonomousField" destination="oda-U2-HP7" id="ucS-XK-koo"/>
                         <outlet property="autonomousLabel" destination="GG2-vn-nPO" id="TQE-Em-mfO"/>
                         <outlet property="connectionsLabel" destination="34T-h9-UbI" id="tvT-ag-HOb"/>
+                        <segue destination="gfn-TY-yy9" kind="presentation" id="DDI-Zf-zzk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UW0-hb-LNu" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="763" y="1138"/>
+            <point key="canvasLocation" x="797" y="1138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mgz-tB-xHj">
+            <objects>
+                <viewController id="gfn-TY-yy9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="H3R-uC-hdY"/>
+                        <viewControllerLayoutGuide type="bottom" id="mSQ-Rm-GND"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="byj-X2-dds">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNc-Re-PQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="1138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ngv-w7-w2o">

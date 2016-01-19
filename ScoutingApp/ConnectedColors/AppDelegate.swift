@@ -9,10 +9,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+	
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+		/*
+		let tabBarController = UITabBarController()
+		let myVC1 = firstVC(nibName: "firstVC", bundle: nil)
+		let myVC2 = secondVC(nibName: "secondVC", bundle: nil)
+		let controllers = [myVC1,myVC2]
+		tabBarController.viewControllers = controllers
+		window?.rootViewController = tabBarController
+		let firstImage = UIImage(named: "delete_sign-256")
+		let secondImage = UIImage(named: "folder-256")
+		myVC1.tabBarItem = UITabBarItem(
+			title: "First",
+			image: firstImage,
+			tag: 1)
+		myVC2.tabBarItem = UITabBarItem(
+			title: "Second",
+			image: secondImage,
+			tag:2)
+		*/
         return true
     }
 

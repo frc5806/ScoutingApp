@@ -32,13 +32,18 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+	@IBAction func switchOne(sender: UIButton) {
+		performSegueWithIdentifier("switchToTwo", sender: self)
+	}
 }
 
 extension ColorSwitchViewController : ColorServiceManagerDelegate {
     
     func connectedDevicesChanged(manager: ColorServiceManager, connectedDevices: [String]) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+			//NSLog("%@", "This device connected: \(connectedDevices)")
             self.connectionsLabel.text = "Connections: \(connectedDevices)"
+			//NSLog("%@", "Connections: \(connectedDevices)")
         }
     }
     
