@@ -19,35 +19,15 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
         colorService.delegate = self
         self.autonomousField.delegate = self
     }
-
-	/*
-    @IBAction func redTapped(sender: AnyObject) {
-        self.changeColor(UIColor.redColor())
-        colorService.sendColor("red")
-    }
-    
-    @IBAction func yellowTapped(sender: AnyObject) {
-        self.changeColor(UIColor.yellowColor())
-        colorService.sendColor("yellow")
-    }
-	*/
 	
     @IBAction func autonomousButton(sender: AnyObject) {
         autonomousLabel.text = autonomousField.text;
         colorService.sendColor(autonomousField.text!);
     }
 	
-	/*
-    func changeColor(color : UIColor) {
-        UIView.animateWithDuration(0.2) {
-            self.view.backgroundColor = color
-        }
-    }
-	*/
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-		autonomousLabel.text = autonomousField.text;
+		//autonomousLabel.text = autonomousField.text;
 		colorService.sendColor(autonomousField.text!);
         return false
     }
@@ -65,10 +45,6 @@ extension ColorSwitchViewController : ColorServiceManagerDelegate {
     func colorChanged(manager: ColorServiceManager, colorString: String) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             switch colorString {
-            //case "red":
-                //self.changeColor(UIColor.redColor())
-            //case "yellow":
-                //self.changeColor(UIColor.yellowColor())
             default:
                 //NSLog("%@", "Unknown color value received: \(colorString)")
                 self.autonomousLabel.text = colorString;

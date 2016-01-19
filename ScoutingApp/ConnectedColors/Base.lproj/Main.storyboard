@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSo-1L-CXo">
-                                <rect key="frame" x="20" y="425" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="autonomousButton:" destination="ax0-WZ-lTZ" eventType="touchUpInside" id="BkT-yr-GT8"/>
-                                    <action selector="submitButtonClicked" destination="ax0-WZ-lTZ" eventType="touchUpInside" id="yMf-yK-LM7"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Autonomous:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GG2-vn-nPO">
                                 <rect key="frame" x="20" y="358" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
