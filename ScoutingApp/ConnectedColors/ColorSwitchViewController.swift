@@ -11,6 +11,8 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var connectionsLabel: UILabel!
     @IBOutlet weak var autonomousLabel: UILabel!
     @IBOutlet weak var autonomousField: UITextField!
+    @IBOutlet weak var LowGoal: UISwitch!
+    @IBOutlet weak var HighGoal: UILabel!
     
     let colorService = ColorServiceManager()
     
