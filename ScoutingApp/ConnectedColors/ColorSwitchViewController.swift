@@ -23,14 +23,14 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
     }
 	
     @IBAction func autonomousButton(sender: AnyObject) {
-        autonomousLabel.text = autonomousField.text;
-        colorService.sendColor(autonomousField.text!);
+        autonomousLabel.text = autonomousField.text
+        colorService.sendColor(autonomousField.text!)
     }
 	
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-		//autonomousLabel.text = autonomousField.text;
-		colorService.sendColor(autonomousField.text!);
+		//autonomousLabel.text = autonomousField.text
+		colorService.sendColor(autonomousField.text!)
         return false
     }
     
