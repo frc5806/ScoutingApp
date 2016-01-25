@@ -15,7 +15,7 @@ protocol ColorServiceManagerDelegate {
 
 class Synchronizer : NSObject {
 	
-	private let ColorServiceType = "example-color"
+	private let ColorServiceType = "frc-scouting"
 	private let myPeerId = MCPeerID(displayName: UIDevice.currentDevice().name)
 	private let serviceAdvertiser : MCNearbyServiceAdvertiser
 	private let serviceBrowser : MCNearbyServiceBrowser
@@ -46,7 +46,7 @@ class Synchronizer : NSObject {
 		return session
 	}()
 	
-	func sendColor(textString : String) {
+	func sendData(textString : String) {
 		NSLog("%@", "sendData: \(textString)")
 		
 		if session.connectedPeers.count > 0 {
@@ -99,6 +99,7 @@ extension Synchronizer : MCNearbyServiceBrowserDelegate {
 
 extension MCSessionState {
 	
+	// Returns current state
 	func stringValue() -> String {
 		switch(self) {
 		case .NotConnected: return "NotConnected"
@@ -112,25 +113,31 @@ extension MCSessionState {
 
 extension Synchronizer : MCSessionDelegate {
 	
+	// When someone disconnects probably
 	func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
 		NSLog("%@", "peer \(peerID.displayName) didChangeState: \(state.stringValue())")
 		self.delegate?.connectedDevicesChanged(self, connectedDevices: session.connectedPeers.map({$0.displayName}))
 	}
 	
+	// Defined data type recieved
 	func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
 		let str = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
 		NSLog("%@", "didReceiveData: \(str)")
 		self.delegate?.colorChanged(self, colorString: str)
 	}
 	
+	// IGNORE THESE BOTTOM THREE
+	// Recieve a stream
 	func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
 		NSLog("%@", "didReceiveStream")
 	}
 	
+	// Start recieving a byte packet thing
 	func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?) {
 		NSLog("%@", "didFinishReceivingResourceWithName")
 	}
 	
+	// end byte packets
 	func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress) {
 		NSLog("%@", "didStartReceivingResourceWithName")
 	}
