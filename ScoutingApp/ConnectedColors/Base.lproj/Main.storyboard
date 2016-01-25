@@ -30,6 +30,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connections: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34T-h9-UbI">
                                 <rect key="frame" x="20" y="83" width="280" height="21"/>
+<<<<<<< Updated upstream
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -83,10 +84,93 @@
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOR-4a-HH9">
                                 <rect key="frame" x="30" y="436" width="280" height="21"/>
+=======
+>>>>>>> Stashed changes
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="074-ZI-TOc">
+                                <rect key="frame" x="128" y="484" width="65" height="30"/>
+                                <state key="normal" title="Summary"/>
+                                <connections>
+                                    <action selector="switchOne:" destination="ax0-WZ-lTZ" eventType="touchUpInside" id="GkS-4w-gqw"/>
+                                    <segue destination="gfn-TY-yy9" kind="presentation" id="Sz0-3i-6Vt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capabilities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VO-bC-zBn">
+                                <rect key="frame" x="20" y="342" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94n-u6-8Rq">
+                                <rect key="frame" x="175" y="436" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at8-g1-dPg">
+                                <rect key="frame" x="175" y="371" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Low Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rj2-xL-RQN">
+                                <rect key="frame" x="30" y="371" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awU-cX-qzD">
+<<<<<<< HEAD
+                                <rect key="frame" x="256" y="431" width="51" height="31"/>
+                                <connections>
+                                    <action selector="Capture:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="A7W-zf-ZyL"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjY-qa-2z8">
+                                <rect key="frame" x="115" y="431" width="51" height="31"/>
+                                <connections>
+                                    <action selector="HighGoal:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="Bry-np-PG8"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-eG-oNN">
+                                <rect key="frame" x="256" y="371" width="51" height="31"/>
+                                <connections>
+                                    <action selector="Button:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="Rp2-6V-49C"/>
+                                    <action selector="Defenses:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="hRS-DG-VRk"/>
+=======
+                                <rect key="frame" x="251" y="431" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjY-qa-2z8">
+                                <rect key="frame" x="115" y="431" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-Wm-VRK">
+                                <rect key="frame" x="115" y="371" width="51" height="31"/>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-eG-oNN">
+                                <rect key="frame" x="251" y="371" width="51" height="31"/>
+                                <connections>
+                                    <action selector="Button:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="Rp2-6V-49C"/>
+>>>>>>> origin/master
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOR-4a-HH9">
+                                <rect key="frame" x="30" y="436" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+<<<<<<< HEAD
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sI8-Wm-VRK">
+                                <rect key="frame" x="115" y="371" width="51" height="31"/>
+                                <connections>
+                                    <action selector="LowGoal:" destination="ax0-WZ-lTZ" eventType="valueChanged" id="uCS-ep-Ol2"/>
+                                </connections>
+                            </switch>
+=======
+>>>>>>> origin/master
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -94,7 +178,18 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Action" destination="XRp-eG-oNN" id="oPz-cC-K42"/>
+<<<<<<< Updated upstream
                         <outlet property="HighGoal" destination="yOR-4a-HH9" id="HqQ-q8-4SZ"/>
+=======
+<<<<<<< HEAD
+                        <outlet property="Capture" destination="yOR-4a-HH9" id="hUZ-eH-Mco"/>
+                        <outlet property="Defenses" destination="XRp-eG-oNN" id="bgZ-9E-Moo"/>
+                        <outlet property="HighGoal" destination="yOR-4a-HH9" id="HqQ-q8-4SZ"/>
+                        <outlet property="LowGoal" destination="sI8-Wm-VRK" id="hgF-nX-IVz"/>
+=======
+                        <outlet property="HighGoal" destination="yOR-4a-HH9" id="HqQ-q8-4SZ"/>
+>>>>>>> origin/master
+>>>>>>> Stashed changes
                         <outlet property="autonomousField" destination="oda-U2-HP7" id="ucS-XK-koo"/>
                         <outlet property="autonomousLabel" destination="GG2-vn-nPO" id="TQE-Em-mfO"/>
                         <outlet property="connectionsLabel" destination="34T-h9-UbI" id="tvT-ag-HOb"/>

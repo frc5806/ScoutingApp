@@ -11,8 +11,30 @@ class ColorSwitchViewController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var connectionsLabel: UILabel!
     @IBOutlet weak var autonomousLabel: UILabel!
     @IBOutlet weak var autonomousField: UITextField!
+<<<<<<< Updated upstream
     @IBOutlet weak var LowGoal: UISwitch!
     @IBOutlet weak var HighGoal: UILabel!
+=======
+<<<<<<< HEAD
+
+
+    @IBAction func LowGoal(sender: AnyObject) {
+        
+        
+    }
+
+    @IBAction func HighGoal(sender: AnyObject) {
+    }
+    @IBAction func Defenses(sender: AnyObject) {
+    }
+
+    @IBAction func Capture(sender: AnyObject) {
+    }
+=======
+    @IBOutlet weak var LowGoal: UISwitch!
+    @IBOutlet weak var HighGoal: UILabel!
+>>>>>>> origin/master
+>>>>>>> Stashed changes
     
     let colorService = ColorServiceManager()
     
