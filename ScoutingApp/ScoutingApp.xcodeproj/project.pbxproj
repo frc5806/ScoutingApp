@@ -14,7 +14,7 @@
 		BAF87F551C56CBD000BC7F77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF87F541C56CBD000BC7F77 /* Assets.xcassets */; };
 		BAF87F581C56CBD000BC7F77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF87F561C56CBD000BC7F77 /* LaunchScreen.storyboard */; };
 		BAF87F631C56CBD000BC7F77 /* ScoutingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF87F621C56CBD000BC7F77 /* ScoutingAppTests.swift */; };
-		BAF87F6E1C56CC6500BC7F77 /* ColorServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF87F6D1C56CC6500BC7F77 /* ColorServiceManager.swift */; };
+		C67E4D581C56D07900BB5084 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67E4D571C56D07900BB5084 /* Synchronizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		BAF87F5E1C56CBD000BC7F77 /* ScoutingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF87F621C56CBD000BC7F77 /* ScoutingAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingAppTests.swift; sourceTree = "<group>"; };
 		BAF87F641C56CBD000BC7F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAF87F6D1C56CC6500BC7F77 /* ColorServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorServiceManager.swift; sourceTree = "<group>"; };
+		C67E4D571C56D07900BB5084 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +81,9 @@
 		BAF87F4A1C56CBD000BC7F77 /* ScoutingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C67E4D571C56D07900BB5084 /* Synchronizer.swift */,
 				BAF87F4B1C56CBD000BC7F77 /* AppDelegate.swift */,
 				BAF87F4D1C56CBD000BC7F77 /* FirstViewController.swift */,
-				BAF87F6D1C56CC6500BC7F77 /* ColorServiceManager.swift */,
 				BAF87F4F1C56CBD000BC7F77 /* SecondViewController.swift */,
 				BAF87F511C56CBD000BC7F77 /* Main.storyboard */,
 				BAF87F541C56CBD000BC7F77 /* Assets.xcassets */,
@@ -208,7 +208,7 @@
 				BAF87F501C56CBD000BC7F77 /* SecondViewController.swift in Sources */,
 				BAF87F4C1C56CBD000BC7F77 /* AppDelegate.swift in Sources */,
 				BAF87F4E1C56CBD000BC7F77 /* FirstViewController.swift in Sources */,
-				BAF87F6E1C56CC6500BC7F77 /* ColorServiceManager.swift in Sources */,
+				C67E4D581C56D07900BB5084 /* Synchronizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +398,7 @@
 				BAF87F691C56CBD000BC7F77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAF87F6A1C56CBD000BC7F77 /* Build configuration list for PBXNativeTarget "ScoutingAppTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +407,7 @@
 				BAF87F6C1C56CBD000BC7F77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

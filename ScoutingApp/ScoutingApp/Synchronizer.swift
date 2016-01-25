@@ -1,5 +1,5 @@
 //
-//  ColorServiceManager.swift
+//  Synchronizer.swift
 //  ConnectedColors
 
 
@@ -8,12 +8,12 @@ import MultipeerConnectivity
 
 protocol ColorServiceManagerDelegate {
 	
-	func connectedDevicesChanged(manager : ColorServiceManager, connectedDevices: [String])
-	func colorChanged(manager : ColorServiceManager, colorString: String)
+	func connectedDevicesChanged(manager : Synchronizer, connectedDevices: [String])
+	func colorChanged(manager : Synchronizer, colorString: String)
 	
 }
 
-class ColorServiceManager : NSObject {
+class Synchronizer : NSObject {
 	
 	private let ColorServiceType = "example-color"
 	private let myPeerId = MCPeerID(displayName: UIDevice.currentDevice().name)
@@ -61,7 +61,7 @@ class ColorServiceManager : NSObject {
 	
 }
 
-extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
+extension Synchronizer : MCNearbyServiceAdvertiserDelegate {
 	
 	func advertiser(advertiser: MCNearbyServiceAdvertiser, didNotStartAdvertisingPeer error: NSError) {
 		NSLog("%@", "didNotStartAdvertisingPeer: \(error)")
@@ -75,7 +75,7 @@ extension ColorServiceManager : MCNearbyServiceAdvertiserDelegate {
 	
 }
 
-extension ColorServiceManager : MCNearbyServiceBrowserDelegate {
+extension Synchronizer : MCNearbyServiceBrowserDelegate {
 	
 	func browser(browser: MCNearbyServiceBrowser, didNotStartBrowsingForPeers error: NSError) {
 		NSLog("%@", "didNotStartBrowsingForPeers: \(error)")
@@ -110,7 +110,7 @@ extension MCSessionState {
 	
 }
 
-extension ColorServiceManager : MCSessionDelegate {
+extension Synchronizer : MCSessionDelegate {
 	
 	func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
 		NSLog("%@", "peer \(peerID.displayName) didChangeState: \(state.stringValue())")
