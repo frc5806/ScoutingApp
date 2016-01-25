@@ -46,15 +46,14 @@ class ColorServiceManager : NSObject {
 		return session
 	}()
 	
-	func sendColor(colorName : String) {
-		NSLog("%@", "sendColor: \(colorName)")
+	func sendColor(textString : String) {
+		NSLog("%@", "sendData: \(textString)")
 		
 		if session.connectedPeers.count > 0 {
-			var error : NSError?
 			do {
-				try self.session.sendData(colorName.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, toPeers: session.connectedPeers, withMode: MCSessionSendDataMode.Reliable)
-			} catch var error1 as NSError {
-				NSLog("%@", "\(error1)")
+				try self.session.sendData(textString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, toPeers: session.connectedPeers, withMode: MCSessionSendDataMode.Reliable)
+			} catch let error1 as NSError {
+				NSLog("%@", "Error: \(error1)")
 			}
 		}
 		
