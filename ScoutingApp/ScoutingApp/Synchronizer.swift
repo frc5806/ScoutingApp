@@ -6,7 +6,7 @@
 import Foundation
 import MultipeerConnectivity
 
-protocol ColorServiceManagerDelegate {
+protocol SynchronizerDelegate {
 	
 	func connectedDevicesChanged(manager : Synchronizer, connectedDevices: [String])
 	func colorChanged(manager : Synchronizer, colorString: String)
@@ -15,16 +15,18 @@ protocol ColorServiceManagerDelegate {
 
 class Synchronizer : NSObject {
 	
-	private let ColorServiceType = "frc-scouting"
+	private let serviceType = "frc-scouting"
 	private let myPeerId = MCPeerID(displayName: UIDevice.currentDevice().name)
 	private let serviceAdvertiser : MCNearbyServiceAdvertiser
 	private let serviceBrowser : MCNearbyServiceBrowser
-	var delegate : ColorServiceManagerDelegate?
+	var delegate : SynchronizerDelegate?
 	
 	override init() {
-		self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: ["HM": "Lions"], serviceType: ColorServiceType)
+		self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: [ "@HM": "@Lions"], serviceType: serviceType)
 		
-		self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: ColorServiceType)
+		NSLog("%@", "Started advertiser")
+		
+		self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: serviceType)
 		
 		super.init()
 		
@@ -113,7 +115,7 @@ extension MCSessionState {
 
 extension Synchronizer : MCSessionDelegate {
 	
-	// When someone disconnects probably
+	// When someone disconnects or connect
 	func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
 		NSLog("%@", "peer \(peerID.displayName) didChangeState: \(state.stringValue())")
 		self.delegate?.connectedDevicesChanged(self, connectedDevices: session.connectedPeers.map({$0.displayName}))
