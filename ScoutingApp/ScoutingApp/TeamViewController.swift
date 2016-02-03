@@ -8,6 +8,6 @@
 
 import UIKit
 
-class TeamTableViewController : UITableViewController, UITableViewDelegate {
+class TeamTableViewController : UITableViewController {
     
 }
