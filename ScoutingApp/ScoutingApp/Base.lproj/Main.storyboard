@@ -63,10 +63,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWM-Rv-Umd">
+                                <rect key="frame" x="95" y="170" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="buttonPress:" destination="izU-pJ-tfL" eventType="touchUpInside" id="pVE-Pb-rW4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="aAe-JN-1Dv"/>
+                    <connections>
+                        <outlet property="buttonSend" destination="DWM-Rv-Umd" id="5IW-ln-VnF"/>
+                        <outlet property="info" destination="ts4-pk-5Vj" id="VwF-6M-ZA3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5B-po-LTH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

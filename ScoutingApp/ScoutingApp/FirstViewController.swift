@@ -10,10 +10,12 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+	@IBOutlet weak var buttonSend: UIButton!
+	@IBOutlet weak var info: UITextField!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		let bob = Synchronizer();
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -21,6 +23,10 @@ class FirstViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 
-
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+	
+	@IBAction func buttonPress(sender: AnyObject) {
+		appDelegate.sendDatatoSync(info.text!)
+	}
 }
 

@@ -13,9 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
+	var synchronizer: Synchronizer?
+	
+	func sendDatatoSync(input: String) {
+		synchronizer?.sendData(input)
+	}
+	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
+		synchronizer = Synchronizer()
 		return true
 	}
 

@@ -22,7 +22,8 @@ class Synchronizer : NSObject {
 	var delegate : SynchronizerDelegate?
 	
 	override init() {
-		self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: [ "@HM": "@Lions"], serviceType: serviceType)
+		NSLog("Start Synchronizer init")
+		self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: [ "HM": "Lions"], serviceType: serviceType)
 		
 		NSLog("%@", "Started advertiser")
 		
@@ -30,14 +31,21 @@ class Synchronizer : NSObject {
 		
 		super.init()
 		
+		NSLog("Start ad")
+		
 		self.serviceAdvertiser.delegate = self
 		self.serviceAdvertiser.startAdvertisingPeer()
 		
+		NSLog("Start browse")
+		
 		self.serviceBrowser.delegate = self
 		self.serviceBrowser.startBrowsingForPeers()
+		
+		NSLog("End Synchronizer init")
 	}
 	
 	deinit {
+		NSLog("Delete Synchronizer")
 		self.serviceAdvertiser.stopAdvertisingPeer()
 		self.serviceBrowser.stopBrowsingForPeers()
 	}
