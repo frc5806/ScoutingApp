@@ -15,7 +15,11 @@ protocol SynchronizerDelegate {
 
 class Synchronizer : NSObject {
 	
+<<<<<<< Updated upstream
 	private let serviceType = "frc-scouting"
+=======
+	private let ColorServiceType = "frc-scouting"
+>>>>>>> Stashed changes
 	private let myPeerId = MCPeerID(displayName: UIDevice.currentDevice().name)
 	private let serviceAdvertiser : MCNearbyServiceAdvertiser
 	private let serviceBrowser : MCNearbyServiceBrowser
@@ -123,7 +127,11 @@ extension MCSessionState {
 
 extension Synchronizer : MCSessionDelegate {
 	
+<<<<<<< Updated upstream
 	// When someone disconnects or connect
+=======
+	// When someone disconnects probably
+>>>>>>> Stashed changes
 	func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
 		NSLog("%@", "peer \(peerID.displayName) didChangeState: \(state.stringValue())")
 		self.delegate?.connectedDevicesChanged(self, connectedDevices: session.connectedPeers.map({$0.displayName}))
