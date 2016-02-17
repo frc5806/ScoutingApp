@@ -58,7 +58,7 @@ class Cell : UITableViewCell, UITableViewDelegate {
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("innerCell")! as UITableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("innerCell")! as! UITableViewCell;
         cell.textLabel!.text = "\(data[indexPath.row])"
         return cell
     }
