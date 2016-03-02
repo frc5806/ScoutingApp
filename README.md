@@ -10,9 +10,9 @@ Next, navigate to the `/app` directory, and run `npm install`. This will install
 ## Developement
 _All commands from here on are assumed to be in the `/app` directory._  
 
-To run the server on localhost, use `ionic serve`  
+To run the server on localhost, use `ionic serve`. If you make changes while it is serving (which you should), it will automatically reload the page.  
 
-The gulp script will automatically recompile the css when you use `ionic serve`, and also warn you of any javascript errors in the terminal window.  
+The gulp script will automatically recompile the css when you use `ionic serve`, and also warn you of any javascript errors in the terminal window, even if you make changes while serving.  
 __Don't forget about this because it will save you.__
 
 To build the app for iOS (Mac only), first make sure you have the platform added with `ionic platform add ios`,  
