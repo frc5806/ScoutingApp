@@ -13,7 +13,7 @@ var paths = {
 	js: ['./www/js/*.js']
 };
 
-gulp.task('default', ['sass', 'jshint']);
+gulp.task('default', ['sass', 'jshint', 'watch']);
 
 gulp.task('sass', function(done) {
 	gulp.src('./scss/ionic.app.scss')
