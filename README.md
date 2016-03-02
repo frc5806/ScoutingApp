@@ -16,4 +16,6 @@ The gulp script will automatically recompile the css when you use `ionic serve`,
 __Don't forget about this because it will save you.__
 
 To build the app for iOS (Mac only), first make sure you have the platform added with `ionic platform add ios`,  
-Then run `ionic build ios` and go to the folder `app/platforms/ios/`. Open `app.xcodeproj` in xcode, and click the run button to run.
+If using an emulated, run `ionic emulate ios`.  
+If using a plugged in device use `ionic run ios`. This may have issues.  
+For control over the device model, use `ionic build ios` and go to the folder `app/platforms/ios/`. Open `app.xcodeproj` in xcode, and click the run button to run.
