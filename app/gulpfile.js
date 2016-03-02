@@ -9,7 +9,7 @@ var sh = require('shelljs');
 jshint = require('gulp-jshint');
 
 var paths = {
-	sass: ['./scss/**/*.scss'],
+	sass: ['./scss/*.scss'],
 	js: ['./www/js/*.js']
 };
 
