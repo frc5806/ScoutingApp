@@ -3,7 +3,7 @@
 Team 5806's scouting app. Used to coordinate scouting information at competitions using Bluetooth.
 
 ## Installation
-First install node.js 4 (very important it is not node.js 5).  
+First install node.js 4 (very important it is not node.js 5). With homebrew, run `brew tap homebrew/versions; brew install nodenv`.    
 Then, install ionic and cordova using `npm install --global ionic cordova`. You may have to use `sudo`.  
 Next, navigate to the `/app` directory, and run `npm install`. This will install all the dependencies.  
 
