@@ -33,42 +33,42 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 	// setup an abstract state for the tabs directive
 	.state('tab', {
-	url: '/tab',
-	abstract: true,
-	templateUrl: 'templates/tabs.html'
+		url: '/tab',
+		abstract: true,
+		templateUrl: 'templates/tabs.html'
 	})
 
 	// Each tab has its own nav history stack:
 
 	.state('tab.sync', {
-	url: '/sync',
-	views: {
-		'tab-sync': {
-		// templateUrl: 'templates/tab-dash.html',
-		controller: 'SyncCtrl'
+		url: '/sync',
+		views: {
+			'tab-sync': {
+				templateUrl: 'templates/sync.html',
+				controller: 'SyncCtrl'
+			}
 		}
-	}
 	})
 
 	// Database stuff
 	.state('tab.data', {
 		url: '/data',
 		views: {
-		'tab-data': {
-			templateUrl: 'templates/tab-data.html',
-			controller: 'DataCtrl'
-		}
+			'tab-data': {
+				templateUrl: 'templates/data.html',
+				controller: 'DataCtrl'
+			}
 		}
 	})
 
 	.state('tab.submit', {
-	url: '/submit',
-	views: {
-		'tab-submit': {
-		templateUrl: 'templates/teamSubmit.html',
-		controller: 'SubmitCtrl'
+		url: '/submit',
+		views: {
+			'tab-submit': {
+				templateUrl: 'templates/submit.html',
+				controller: 'SubmitCtrl'
+			}
 		}
-	}
 	});
 
 	// if none of the above states are matched, use this as the fallback
