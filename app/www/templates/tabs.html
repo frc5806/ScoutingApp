@@ -1,26 +1,15 @@
-<!--
-Create tabs with an icon and label, using the tabs-positive style.
-Each tab's child <ion-nav-view> directive will have its own
-navigation history that also transitions its views in and out.
--->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
-	<!-- Syncing data will be done by the sync() function, in the sync.js file. -->
-
-	<!-- Sync Tab -->
 	<ion-tab title="Sync" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/sync">
 	<ion-nav-view name="tab-sync"></ion-nav-view>
 	</ion-tab>
 
-	<!-- Databse Tab -->
 	<ion-tab title="Submit" icon-off="ion-ios-compose-outline" icon-on="ion-ios-compose" href="#/tab/submit">
 	<ion-nav-view name="tab-submit"></ion-nav-view>
 	</ion-tab>
 
-	<!-- Submit Tab -->
 	<ion-tab title="Database" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#/tab/data">
 		<ion-nav-view name="tab-data"></ion-nav-view>
 	</ion-tab>
-
 
 </ion-tabs>
