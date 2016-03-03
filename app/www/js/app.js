@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 		url: '/sync',
 		views: {
 			'tab-sync': {
-				templateUrl: 'templates/sync.html',
+				// templateUrl: 'templates/sync.html',
 				controller: 'SyncCtrl'
 			}
 		}
