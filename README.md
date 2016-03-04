@@ -17,5 +17,4 @@ __Don't forget about this because it will save you.__
 
 To build the app for iOS (Mac only), first make sure you have the platform added with `ionic platform add ios`,  
 If using an emulated, run `ionic emulate ios`.  
-If using a plugged in device use `ionic run ios`. This may have issues.  
-For control over the device model, use `ionic build ios` and go to the folder `app/platforms/ios/`. Open `app.xcodeproj` in xcode, and click the run button to run.
+For control over the device model in emulation, or to run on a real device, use `ionic build ios` and go to the folder `app/platforms/ios/`. Open `app.xcodeproj` in xcode, and click the run button after selecting the device you want to run on.
