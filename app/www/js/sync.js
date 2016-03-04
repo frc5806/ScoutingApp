@@ -4,32 +4,27 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 .service('syncer', ['$localstorage', function($localstorage) {
 	// do stuff
 	this.sync = function () {
-		// This is the function
-		$localstorage.set('name', 'Max');
-		console.log($localstorage.get('name'));
-		$localstorage.setObject('post', {
-			name: 'Thoughts',
-			text: 'Today was a good day'
-		});
+		// This is the function to sync with local storage (use for database while offline)
 
-		var post = $localstorage.getObject('post');
-		console.log(post);
-		console.log("Syncing");
-		return 0;
+		var data = $localstorage.getObject('data');
+		console.log(data);
+		return data;
 	}
 
-	this.submit = function (data) {
-		// This is the function
-		console.log(data);
-		var post = $localstorage.getObject('data') || [];
-		if (data.high === "undefined") {
-			data.high = false;
+	this.submit = function (formData) {
+		// This is the function to load data into local storage
+		if (formData.high === undefined) {
+			formData.high = false; // add high data if not set
 		}
-		post.push(data);
-		$localstorage.setObject('data', post);
-		var final = $localstorage.getObject('data');
-		console.log(final);
-		console.log("Syncing");
+		console.log(formData);
+		var data = $localstorage.getObject('data'); // load from local storage
+		console.log(data);
+		if (JSON.stringify(data) === "{}") { // if localstorage is empty
+			data = [formData];
+		} else {
+			data.push(formData); // push to localstorage array
+		}
+		$localstorage.setObject('data', data); // load into localstorage
 		return 0;
 	}
 }]);
