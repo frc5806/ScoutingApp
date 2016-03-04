@@ -17,4 +17,19 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 		console.log("Syncing");
 		return 0;
 	}
+
+	this.submit = function (data) {
+		// This is the function
+		console.log(data);
+		var post = $localstorage.getObject('data') || [];
+		if (data.high === "undefined") {
+			data.high = false;
+		}
+		post.push(data);
+		$localstorage.setObject('data', post);
+		var final = $localstorage.getObject('data');
+		console.log(final);
+		console.log("Syncing");
+		return 0;
+	}
 }]);
