@@ -1,14 +1,42 @@
-<ion-view view-title="Team">
-  <ion-content>
-	<div class="list card">
-	  <div class="item">
-		<h1>{{data.teamname}}</h1>
-		<h2>{{data.teamnumber}}</h2>
-		<p>Robot Type: {{data.type}}</p>
-	  </div>
-	  <div class="item item-body">
-		<p><strong>Autonomous: </strong>{{data.auto}}</p>
-	  </div>
-	</div>
-  </ion-content>
+<ion-view view-title="Team {{data.teamnumber}}">
+	<ion-content>
+		<div class="list card">
+			<div class="item">
+				<h1>{{data.teamname}}</h1>
+				<h2>{{data.teamnumber}}</h2>
+				<p>Robot Type: {{data.type}}</p>
+			</div>
+			<div class="item item-body">
+				<strong>Autonomous:</strong>
+				<p>{{data.auto}}</p>
+			</div>
+			<div class="item item-body">
+				<strong>Previous Matches:</strong>
+				<p>{{data.match}}</p>
+			</div>
+			<div class="item item-body">
+				<strong>Extent of testing:</strong>
+				<p>{{data.test}}</p>
+			</div>
+			<div class="item item-body">
+				<strong>Scoring Capabilities</strong>
+				<hr>
+				Can score in high goal: <i class="icon ion-checkmark" ng-show="data.high"></i><i class="ion-close" ng-hide="data.high"></i><br>
+				Can score in low goal: <i class="icon ion-checkmark" ng-show="data.low"></i><i class="ion-close" ng-hide="data.low"></i><br>
+				Can scale the tower: <i class="icon ion-checkmark" ng-show="data.tower"></i><i class="ion-close" ng-hide="data.tower"></i><br>
+			</div>
+			<div class="item item-body">
+				<strong>Crossing Capabilities</strong>
+				<hr>
+				Can cross the portcullis: <i class="icon ion-checkmark" ng-show="data.portcullis"></i><i class="ion-close" ng-hide="data.portcullis"></i><br>
+				Can cross the cheval de frise: <i class="icon ion-checkmark" ng-show="data.cheval"></i><i class="ion-close" ng-hide="data.cheval"></i><br>
+				Can cross the ramparts: <i class="icon ion-checkmark" ng-show="data.ramparts"></i><i class="ion-close" ng-hide="data.ramparts"></i><br>
+				Can cross the moat: <i class="icon ion-checkmark" ng-show="data.moat"></i><i class="ion-close" ng-hide="data.moat"></i><br>
+				Can cross the drawbridge: <i class="icon ion-checkmark" ng-show="data.drawbridge"></i><i class="ion-close" ng-hide="data.drawbridge"></i><br>
+				Can cross the sally port: <i class="icon ion-checkmark" ng-show="data.sally"></i><i class="ion-close" ng-hide="data.sally"></i><br>
+				Can cross the rock wall: <i class="icon ion-checkmark" ng-show="data.rock"></i><i class="ion-close" ng-hide="data.rock"></i><br>
+				Can cross the rough terrain: <i class="icon ion-checkmark" ng-show="data.rough"></i><i class="ion-close" ng-hide="data.rough"></i><br>
+			</div>
+		</div>
+	</ion-content>
 </ion-view>
