@@ -4,8 +4,15 @@ angular.module('starter.controllers', ['sync'])
 
 })
 
-.controller('SubmitCtrl', function($scope, syncer) {
-	$scope.doSubmit = syncer.submit;
+.controller('SubmitCtrl', function($scope, $ionicPopup, syncer) {
+	$scope.doSubmit = function(data) {
+		if (syncer.submit(data) < 0) {
+			$ionicPopup.alert({
+				title: 'Incomplete Form',
+				template: 'Fill in at least team name and number'
+			});
+		}
+	}
 	$scope.teamdata = {
 		teamname: "",
 		teamnumber: "",

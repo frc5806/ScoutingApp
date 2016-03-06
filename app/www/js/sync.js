@@ -24,6 +24,9 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 
 	this.submit = function (formData) {
 		// This is the function to load data into local storage
+		if (formData.teamnumber == "" || formData.teamname == "") {
+			return -2;
+		}
 		console.log(formData);
 		var data = $localstorage.getObject('data'); // load from local storage
 		console.log(data);
