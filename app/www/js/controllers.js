@@ -6,6 +6,26 @@ angular.module('starter.controllers', ['sync'])
 
 .controller('SubmitCtrl', function($scope, syncer) {
 	$scope.doSubmit = syncer.submit;
+	$scope.teamdata = {
+		teamname: "",
+		teamnumber: "",
+		high: false,
+		low: false,
+		tower: false,
+		portcullis: false,
+		cheval: false,
+		ramparts: false,
+		moat: false,
+		drawbridge: false,
+		sally: false,
+		rock: false,
+		rough: false,
+		terrain: false,
+		type: "Neutral",
+		auto: "",
+		testing: "",
+		match: ""
+	}
 })
 
 .controller('DataCtrl', function($scope, syncer) {
