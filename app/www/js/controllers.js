@@ -8,6 +8,16 @@ angular.module('starter.controllers', ['sync'])
 	$scope.doSubmit = syncer.submit;
 })
 
-.controller('DataCtrl', function($scope, Chats, syncer) {
-	
+.controller('DataCtrl', function($scope, syncer) {
+	$scope.$on('$ionicView.enter', function(e) {
+		$scope.datas=syncer.syncLocal();
+		// fill in and stuff
+	});
+})
+
+.controller('TeamCtrl', function($scope, $stateParams, syncer) {
+	$scope.$on('$ionicView.enter', function(e) {
+		$scope.data=syncer.getTeam($stateParams.teamNum);
+		console.log($scope.data)
+	});
 });

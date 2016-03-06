@@ -61,6 +61,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 		}
 	})
 
+	.state('tab.team', {
+		url: '/data/:teamNum',
+		views: {
+			'tab-data': {
+				templateUrl: 'templates/team.html',
+				controller: 'TeamCtrl'
+			}
+		}
+	})
+
 	.state('tab.submit', {
 		url: '/submit',
 		views: {

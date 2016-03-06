@@ -1,8 +1,9 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-	<h2>Welcome to Ionic</h2>
-	<p>
-	  To edit the content of each tab, edit the corresponding template file in <code>www/templates/</code>. This template is <code>www/templates/tab-data.html</code>
-	</p>
+<ion-view view-title="Database">
+  <ion-content>
+	<ion-list>
+		<ion-item ng-repeat="team in datas" href="#/tab/data/{{team.teamnumber}}">
+			{{team.teamnumber}} <strong>{{team.teamname}}</strong>
+		</ion-item>
+	</ion-list>
   </ion-content>
 </ion-view>

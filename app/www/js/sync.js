@@ -8,7 +8,18 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 
 		var data = $localstorage.getObject('data');
 		console.log(data);
-		return data;
+		return data.sort(function(a,b) {
+			return a.teamnumber - b.teamnumber;
+		});
+	}
+
+	this.getTeam = function (teamNum) { // from local storage
+		var data = $localstorage.getObject('data');
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].teamnumber == teamNum) {
+				return data[i];
+			}
+		}
 	}
 
 	this.submit = function (formData) {
