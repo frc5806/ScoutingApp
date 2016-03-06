@@ -3,7 +3,7 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 
 .service('syncer', ['$localstorage', function($localstorage) {
 	// do stuff
-	this.sync = function () {
+	this.syncLocal = function () {
 		// This is the function to sync with local storage (use for database while offline)
 
 		var data = $localstorage.getObject('data');
@@ -13,9 +13,6 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 
 	this.submit = function (formData) {
 		// This is the function to load data into local storage
-		if (formData.high === undefined) {
-			formData.high = false; // add high data if not set
-		}
 		console.log(formData);
 		var data = $localstorage.getObject('data'); // load from local storage
 		console.log(data);
