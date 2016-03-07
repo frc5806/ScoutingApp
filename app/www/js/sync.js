@@ -8,6 +8,9 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 
 		var data = $localstorage.getObject('data');
 		console.log(data);
+		if (JSON.stringify(data) == "{}") {
+			return -2;
+		}
 		return data.sort(function(a,b) {
 			return a.teamnumber - b.teamnumber;
 		});
@@ -38,6 +41,12 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 		$localstorage.setObject('data', data); // load into localstorage
 		return 0;
 	};
-	
-	
+
+	this.emptyLocal = function () {
+		$localstorage.setObject('data', {});
+		console.log("Emptied");
+		return 0;
+	};
+
+
 }]);
