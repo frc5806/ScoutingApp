@@ -11,7 +11,7 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 		return data.sort(function(a,b) {
 			return a.teamnumber - b.teamnumber;
 		});
-	}
+	};
 
 	this.getTeam = function (teamNum) { // from local storage
 		var data = $localstorage.getObject('data');
@@ -20,11 +20,11 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 				return data[i];
 			}
 		}
-	}
+	};
 
 	this.submit = function (formData) {
 		// This is the function to load data into local storage
-		if (formData.teamnumber == "" || formData.teamname == "") {
+		if (formData.teamnumber === "" || formData.teamname === "") {
 			return -2;
 		}
 		console.log(formData);
@@ -37,5 +37,7 @@ angular.module('sync', ['ionic', 'ionic.utils'])
 		}
 		$localstorage.setObject('data', data); // load into localstorage
 		return 0;
-	}
+	};
+	
+	
 }]);
