@@ -2,7 +2,11 @@
 textarea {
   resize: none;
 }
-.icon {
-  font-size: 25px;
+.button {
+  font-size: 20px;
+}
+.bigicon {
+  /*used exclusively for loading icons in sync.html*/
+  font-size: 70px;
 }
 
