@@ -1,4 +1,8 @@
-/* Empty. Add your own CSS if you like */
+/*Where we add our own CSS for all the html templates*/
 textarea {
   resize: none;
 }
+.icon {
+  font-size: 75px;
+}
+
