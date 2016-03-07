@@ -14,7 +14,7 @@ angular.module('starter.controllers', ['sync'])
 		} else {
 			$state.transitionTo("tab.data");
 		}
-	}
+	};
 	$scope.teamdata = {
 		teamname: "",
 		teamnumber: "",
@@ -34,7 +34,7 @@ angular.module('starter.controllers', ['sync'])
 		auto: "",
 		testing: "",
 		match: ""
-	}
+	};
 })
 
 .controller('DataCtrl', function($scope, $state, $ionicPopup, syncer) {
@@ -59,7 +59,7 @@ angular.module('starter.controllers', ['sync'])
 				});
 			}
 		});
-	}
+	};
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.datas=syncer.syncLocal();
@@ -77,6 +77,6 @@ angular.module('starter.controllers', ['sync'])
 .controller('TeamCtrl', function($scope, $stateParams, syncer) {
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.data=syncer.getTeam($stateParams.teamNum);
-		console.log($scope.data)
+		console.log($scope.data);
 	});
 });
