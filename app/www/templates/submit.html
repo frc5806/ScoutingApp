@@ -1,46 +1,46 @@
 <ion-view view-title="Submit">
 	<ion-content>
-		<form ng-submit="doSubmit(teamdata)">
+		<form ng-submit="doSubmit(teamData)">
 			<div class="list">
 				<label class="item item-input">
 					<span class="input-label">Team Name</span>
-					<input type="text" ng-model="teamdata.teamname" placeholder="Basement Lions">
+					<input type="text" ng-model="teamData.teamname" placeholder="Basement Lions">
 				</label>
 				<label class="item item-input">
 					<span class="input-label">Team Number</span>
-					<input type="tel" ng-model="teamdata.teamnumber" placeholder="5806">
+					<input type="tel" ng-model="teamData.teamnumber" placeholder="5806">
 				</label>
 
-				<ion-toggle ng-model="teamdata.high" toggle-class="toggle-calm">Can score in high goal</ion-toggle>
-				<ion-toggle ng-model="teamdata.low" toggle-class="toggle-calm">Can score in low goal</ion-toggle>
-				<ion-toggle ng-model="teamdata.tower" toggle-class="toggle-calm">Can scale the tower</ion-toggle>
-				<ion-toggle ng-model="teamdata.portcullis" toggle-class="toggle-calm">Can cross the portcullis</ion-toggle>
-				<ion-toggle ng-model="teamdata.cheval" toggle-class="toggle-calm">Can cross the cheval de frise</ion-toggle>
-				<ion-toggle ng-model="teamdata.ramparts" toggle-class="toggle-calm">Can cross the ramparts</ion-toggle>
-				<ion-toggle ng-model="teamdata.moat" toggle-class="toggle-calm">Can cross the moat</ion-toggle>
-				<ion-toggle ng-model="teamdata.drawbridge" toggle-class="toggle-calm">Can cross the drawbridge</ion-toggle>
-				<ion-toggle ng-model="teamdata.sally" toggle-class="toggle-calm">Can cross the sally port</ion-toggle>
-				<ion-toggle ng-model="teamdata.rock" toggle-class="toggle-calm">Can cross the rock wall</ion-toggle>
-				<ion-toggle ng-model="teamdata.rough" toggle-class="toggle-calm">Can cross the rough terrain</ion-toggle>
+				<ion-toggle ng-model="teamData.high" toggle-class="toggle-calm">Can score in high goal</ion-toggle>
+				<ion-toggle ng-model="teamData.low" toggle-class="toggle-calm">Can score in low goal</ion-toggle>
+				<ion-toggle ng-model="teamData.tower" toggle-class="toggle-calm">Can scale the tower</ion-toggle>
+				<ion-toggle ng-model="teamData.portcullis" toggle-class="toggle-calm">Can cross the portcullis</ion-toggle>
+				<ion-toggle ng-model="teamData.cheval" toggle-class="toggle-calm">Can cross the cheval de frise</ion-toggle>
+				<ion-toggle ng-model="teamData.ramparts" toggle-class="toggle-calm">Can cross the ramparts</ion-toggle>
+				<ion-toggle ng-model="teamData.moat" toggle-class="toggle-calm">Can cross the moat</ion-toggle>
+				<ion-toggle ng-model="teamData.drawbridge" toggle-class="toggle-calm">Can cross the drawbridge</ion-toggle>
+				<ion-toggle ng-model="teamData.sally" toggle-class="toggle-calm">Can cross the sally port</ion-toggle>
+				<ion-toggle ng-model="teamData.rock" toggle-class="toggle-calm">Can cross the rock wall</ion-toggle>
+				<ion-toggle ng-model="teamData.rough" toggle-class="toggle-calm">Can cross the rough terrain</ion-toggle>
 
 				<label class="item">
 					<span class="input-label">Type of robot</span>
-					<ion-radio ng-model="teamdata.type" ng-value="'Offensive'">Offensive</ion-radio>
-					<ion-radio ng-model="teamdata.type" ng-value="'Neutral'">Neutral</ion-radio>
-					<ion-radio ng-model="teamdata.type" ng-value="'Defensive'">Defensive</ion-radio>
+					<ion-radio ng-model="teamData.type" ng-value="'Offensive'">Offensive</ion-radio>
+					<ion-radio ng-model="teamData.type" ng-value="'Neutral'">Neutral</ion-radio>
+					<ion-radio ng-model="teamData.type" ng-value="'Defensive'">Defensive</ion-radio>
 				</label>
 
 				<label class="item">
 					<span class="input-label">Describe the autonomous</span>
-					<textarea ng-model="teamdata.auto" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.auto" placeholder="The best ever"></textarea>
 				</label>
 				<label class="item">
 					<span class="input-label">Describe their testing process/robot reliability</span>
-					<textarea ng-model="teamdata.testing" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.testing" placeholder="The best ever"></textarea>
 				</label>
 				<label class="item" id="textarea">
 					<span class="input-label">Describe match performance</span>
-					<textarea ng-model="teamdata.match" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.match" placeholder="The best ever"></textarea>
 				</label>
 				<label class="item">
 					<button class="button button-block button-positive" type="submit">Submit</button>

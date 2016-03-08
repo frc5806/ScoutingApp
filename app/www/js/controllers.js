@@ -1,43 +1,51 @@
 angular.module('ScoutingApp.controllers', [])
 
-.controller('SyncCtrl', function($scope, $ionicHistory, syncer) {
+.controller('SyncCtrl', function($scope, $ionicHistory) {
 
 })
 
-.controller('SubmitCtrl', function($scope, $state, $ionicPopup, syncer) {
-	$scope.doSubmit = function(data) {
-		if (syncer.submit(data) < 0) {
+.controller('SubmitCtrl', function($scope, $state, $ionicPopup, $localStorage) {
+	function startingTeamData() {
+		return {
+			teamname: "",
+			teamnumber: "",
+			high: false,
+			low: false,
+			tower: false,
+			portcullis: false,
+			cheval: false,
+			ramparts: false,
+			moat: false,
+			drawbridge: false,
+			sally: false,
+			rock: false,
+			rough: false,
+			terrain: false,
+			type: "Neutral",
+			auto: "",
+			testing: "",
+			match: ""
+		};
+	};
+	console.log($localStorage.getForms());
+	$scope.doSubmit = function(form) {
+		try {
+			console.log(form);
+			$localStorage.addForm(form);
+			$scope.teamData = startingTeamData();
+		} catch (err) {
+			console.log(err);
 			$ionicPopup.alert({
 				title: 'Incomplete Form',
 				template: 'Fill in at least team name and number'
 			});
-		} else {
-			$state.transitionTo("tab.data");
 		}
 	};
-	$scope.teamdata = {
-		teamname: "",
-		teamnumber: "",
-		high: false,
-		low: false,
-		tower: false,
-		portcullis: false,
-		cheval: false,
-		ramparts: false,
-		moat: false,
-		drawbridge: false,
-		sally: false,
-		rock: false,
-		rough: false,
-		terrain: false,
-		type: "Neutral",
-		auto: "",
-		testing: "",
-		match: ""
-	};
+
+	$scope.teamData = startingTeamData();
 })
 
-.controller('DataCtrl', function($scope, $state, $ionicPopup, syncer) {
+.controller('DataCtrl', function($scope, $state, $ionicPopup, $localStorage) {
 	$scope.emptyStorage = function () {
 
 		var confirmPopup = $ionicPopup.confirm({
@@ -62,7 +70,7 @@ angular.module('ScoutingApp.controllers', [])
 	};
 
 	$scope.$on('$ionicView.enter', function(e) {
-		$scope.datas=syncer.syncLocal();
+		$scope.datas = form
 		if ($scope.datas == -2) {
 			$ionicPopup.alert({
 				title: 'No database entries',
@@ -74,7 +82,7 @@ angular.module('ScoutingApp.controllers', [])
 	});
 })
 
-.controller('TeamCtrl', function($scope, $stateParams, syncer) {
+.controller('TeamCtrl', function($scope, $stateParams, $localStorage) {
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.data=syncer.getTeam($stateParams.teamNum);
 		console.log($scope.data);
