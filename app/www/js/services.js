@@ -51,18 +51,22 @@ angular.module('starter.services', [])
 angular.module('ionic.utils', [])
 
 .factory('$localstorage', ['$window', function($window) {
+	var FORM_KEY = "forms";
+
+	var set = function(key, value) {
+		$window.localStorage[key] = JSON.stringify(value);
+	};
+	var get = function(key, defaultValue) {
+		return JSON.parse($window.localStorage[key] || defaultValue);
+	};
 	return {
-		set: function(key, value) {
-			$window.localStorage[key] = value;
+		getForms: function() {
+			return get(FORM_KEY, '[]');
 		},
-		get: function(key, defaultValue) {
-			return $window.localStorage[key] || defaultValue;
-		},
-		setObject: function(key, value) {
-			$window.localStorage[key] = JSON.stringify(value);
-		},
-		getObject: function(key) {
-			return JSON.parse($window.localStorage[key] || '{}');
+		addForm: function(form) {
+			var forms = this.getForms();
+			forms.append(form);
+			set(FORM_KEY, forms);
 		}
 	};
 }]);
