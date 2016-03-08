@@ -1,6 +1,6 @@
-angular.module('starter.services', [])
+angular.module('ScoutingApp.services', [])
 
-.factory('Chats', function() {
+.service('Chats', function() {
 
 	// Some fake testing data
 	var chats = [{
@@ -46,11 +46,9 @@ angular.module('starter.services', [])
 			return null;
 		}
 	};
-});
+})
 
-angular.module('ionic.utils', [])
-
-.factory('$localstorage', ['$window', function($window) {
+.service('$localstorage', function($window) {
 	var FORM_KEY = "forms";
 
 	var set = function(key, value) {
@@ -69,4 +67,55 @@ angular.module('ionic.utils', [])
 			set(FORM_KEY, forms);
 		}
 	};
-}]);
+})
+
+// Syncing function: populate local storage with database information
+.service('syncer', function($localstorage) {
+	// do stuff
+	this.syncLocal = function () {
+		// This is the function to sync with local storage (use for database while offline)
+
+		var data = $localstorage.getObject('data');
+		console.log(data);
+		if (JSON.stringify(data) == "{}") {
+			return -2;
+		}
+		return data.sort(function(a,b) {
+			return a.teamnumber - b.teamnumber;
+		});
+	};
+
+	this.getTeam = function (teamNum) { // from local storage
+		var data = $localstorage.getObject('data');
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].teamnumber == teamNum) {
+				return data[i];
+			}
+		}
+	};
+
+	this.submit = function (formData) {
+		// This is the function to load data into local storage
+		if (formData.teamnumber === "" || formData.teamname === "") {
+			return -2;
+		}
+		console.log(formData);
+		var data = $localstorage.getObject('data'); // load from local storage
+		console.log(data);
+		if (JSON.stringify(data) === "{}") { // if localstorage is empty
+			data = [formData];
+		} else {
+			data.push(formData); // push to localstorage array
+		}
+		$localstorage.setObject('data', data); // load into localstorage
+		return 0;
+	};
+
+	this.emptyLocal = function () {
+		$localstorage.setObject('data', {});
+		console.log("Emptied");
+		return 0;
+	};
+
+
+});

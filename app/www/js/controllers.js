@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['sync'])
+angular.module('ScoutingApp.controllers', [])
 
 .controller('SyncCtrl', function($scope, $ionicHistory, syncer) {
 
