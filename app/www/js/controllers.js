@@ -4,14 +4,26 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordovaBluetoothLE'])
 	$scope.sync = function() {
 		console.log("Started scan");
 		$ionicPlatform.ready(function() {
-			$cordovaBluetoothLE.initialize({request:true}).then(null,
-				function(obj) {
+			$cordovaBluetoothLE.initialize({request:true}).then(null, function(err) {
 					console.log("Init error");
-					console.log(obj);
-				},
-				function(obj) {
+					console.log(JSON.stringify(err));
+				}, function(success) {
 					console.log("Init success");
-					console.log(JSON.stringify(obj));
+					console.log(JSON.stringify(success));
+
+					$cordovaBluetoothLE.stopScan();
+
+					var devices = [];
+					$cordovaBluetoothLE.startScan({services:null}).then(null, function(err) {
+						console.log(JSON.stringify(err));
+					}, function(result) {
+						if(result.status == "scanResult") {
+							if(devices.filter(function(d) { return result.address == d.address; }).length == 0) {
+								console.log(JSON.stringify(result));
+								devices.push(result);
+							}
+						}
+					});
 				}
 			);
 		});
