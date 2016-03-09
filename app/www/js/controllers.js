@@ -1,41 +1,31 @@
-angular.module('ScoutingApp.controllers', ['ionic', 'ngCordovaBluetoothLE'])
+var API_URL = "http://104.131.162.47/api/";
 
-.controller('SyncCtrl', function($scope, $ionicPlatform, $cordovaBluetoothLE) {
+angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
+
+.controller('SyncCtrl', function($scope, $ionicPlatform, $localStorage, $http) {
 	$scope.sync = function() {
-		console.log("Started scannn");
-		$ionicPlatform.ready(function() {
-			$cordovaBluetoothLE.initialize({request:true}).then(null, function(err) {
-					console.log("Init error");
-					console.log(JSON.stringify(err));
-				}, function(success) {
-					console.log("Init success");
-					console.log(JSON.stringify(success));
+		// Post forms
+		$http({
+			method: "POST",
+			url: API_URL+"forms",
+			data: $localStorage.getForms()
+		}).then(function(response) {
+			console.log("Sucess");
+		}, function(response) {
+			console.log("Error");
+			console.log(JSON.stringify(response));
+		});
 
-					$cordovaBluetoothLE.stopScan();
-
-					var devices = [];
-					$cordovaBluetoothLE.startScan({services:null}).then(null, function(err) {
-						console.log(JSON.stringify(err));
-					}, function(result) {
-						if(result.status == "scanResult") {
-							if(devices.filter(function(d) { return result.address == d.address; }).length == 0) {
-								console.log(JSON.stringify(result));
-								devices.push(result);
-								$cordovaBluetoothLE.reconnect({address:result.address}).then(null, function() {
-									console.log("Failed to connect");
-								}, function() {
-									console.log("Connected successfully");
-									$cordovaBluetoothLE.write(function() {
-										console.log("Error writing");
-									}, function() {
-										console.log("Sucuess writing");
-									}, {address: result.address, service: "12", characteristic: "12", value: "12"});
-								});
-							}
-						}
-					});
-				}
-			);
+		// Get forms
+		$http({
+			method: "GET",
+			url: API_URL+"forms"
+		}).then(function(forms) {
+			console.log("Sucess");
+			forms.forEach(function(form) { $localStorage.addForm(form); } );
+		}, function(response) {
+			console.log("Error");
+			console.log(JSON.stringify(response));
 		});
 	};
 
