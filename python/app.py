@@ -11,9 +11,9 @@ db = client.ScoutingApp
 @app.route('/api', methods=['GET', 'POST'])
 def team():
 	if request.method == 'GET':
-		return str([item for item in db.ScoutingApp.find()])
+		return str([item for item in db.team.find()])
 	else:
-		db.ScoutingApp.insert_one(request.form)
+		db.team.insert_one(request.form)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)
