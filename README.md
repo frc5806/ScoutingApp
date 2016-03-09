@@ -34,6 +34,7 @@ To emulate for android, first make sure you have the platform added with `ionic 
 Make sure you have added the platform and used `ionic serve` at least once (to compile sass), and added the platform using either `ionic platform add ios` for iOS, or `ionic platform add android` for android.
 
 #### iOS (Mac Only)
-To run on iOS, use `ionic build ios` and go to the folder `app/platforms/ios/`. Open `ScoutingApp.xcodeproj` in xcode, and click the run button after selecting the device you want to run on.
+To run on iOS, use `ionic build ios && ionic run ios`.
+
 #### Android
-Make sure you have the platform added, and use `ionic build android` to build the android studio project. Then, using android studio, open the project in `app/platforms/android/`, and install the app onto the android device.
+Make sure you have the platform added, and use `ionic build android && ionic run android`.
