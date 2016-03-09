@@ -2,7 +2,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordovaBluetoothLE'])
 
 .controller('SyncCtrl', function($scope, $ionicPlatform, $cordovaBluetoothLE) {
 	$scope.sync = function() {
-		console.log("Started scan");
+		console.log("Started scannn");
 		$ionicPlatform.ready(function() {
 			$cordovaBluetoothLE.initialize({request:true}).then(null, function(err) {
 					console.log("Init error");
@@ -21,6 +21,16 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordovaBluetoothLE'])
 							if(devices.filter(function(d) { return result.address == d.address; }).length == 0) {
 								console.log(JSON.stringify(result));
 								devices.push(result);
+								$cordovaBluetoothLE.reconnect({address:result.address}).then(null, function() {
+									console.log("Failed to connect");
+								}, function() {
+									console.log("Connected successfully");
+									$cordovaBluetoothLE.write(function() {
+										console.log("Error writing");
+									}, function() {
+										console.log("Sucuess writing");
+									}, {address: result.address, service: "12", characteristic: "12", value: "12"});
+								});
 							}
 						}
 					});
