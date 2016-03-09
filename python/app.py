@@ -8,12 +8,12 @@ app = Flask(__name__)
 client = MongoClient()
 db = client.ScoutingApp
 
-@app.route('/api', methods=['GET', 'POST'])
+@app.route('/api/forms', methods=['GET', 'POST'])
 def team():
 	if request.method == 'GET':
 		return str([item for item in db.team.find()])
 	else:
-		db.team.insert_one(request.form)
+		db.team.insert(request.form['forms'])
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)

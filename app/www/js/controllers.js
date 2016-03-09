@@ -8,7 +8,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 		$http({
 			method: "POST",
 			url: API_URL+"forms",
-			data: $localStorage.getForms()
+			data: { forms: $localStorage.getForms() }
 		}).then(function(response) {
 			console.log("Sucess");
 		}, function(response) {
