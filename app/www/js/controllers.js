@@ -70,7 +70,7 @@ angular.module('ScoutingApp.controllers', [])
 	};
 
 	$scope.$on('$ionicView.enter', function(e) {
-		$scope.datas = form
+		$scope.datas = $localStorage.getForms();
 		if ($scope.datas == -2) {
 			$ionicPopup.alert({
 				title: 'No database entries',
@@ -84,7 +84,7 @@ angular.module('ScoutingApp.controllers', [])
 
 .controller('TeamCtrl', function($scope, $stateParams, $localStorage) {
 	$scope.$on('$ionicView.enter', function(e) {
-		$scope.data=syncer.getTeam($stateParams.teamNum);
+		$scope.data = $localStorage.getForm($stateParams.teamNum);
 		console.log($scope.data);
 	});
 });

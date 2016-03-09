@@ -74,6 +74,11 @@ angular.module('ScoutingApp.services', [])
 			var forms = this.getForms();
 			forms.push(form);
 			set(FORM_KEY, forms);
+		},
+		getForm: function(teamNumber) {
+			return this.getForms().filter(function(form) {
+				return teamNumber == form.teamnumber;
+			})[0];;
 		}
 	};
 });
