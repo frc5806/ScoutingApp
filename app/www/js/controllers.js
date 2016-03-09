@@ -1,7 +1,23 @@
-angular.module('ScoutingApp.controllers', [])
+angular.module('ScoutingApp.controllers', ['ionic', 'ngCordovaBluetoothLE'])
 
-.controller('SyncCtrl', function($scope, $ionicHistory) {
+.controller('SyncCtrl', function($scope, $ionicPlatform, $cordovaBluetoothLE) {
+	$scope.sync = function() {
+		console.log("Started scan");
+		$ionicPlatform.ready(function() {
+			$cordovaBluetoothLE.initialize({request:true}).then(null,
+				function(obj) {
+					console.log("Init error");
+					console.log(obj);
+				},
+				function(obj) {
+					console.log("Init success");
+					console.log(JSON.stringify(obj));
+				}
+			);
+		});
+	};
 
+	$scope.sync();
 })
 
 .controller('SubmitCtrl', function($scope, $state, $ionicPopup, $localStorage) {
