@@ -34,7 +34,7 @@ To emulate for android, first make sure you have the platform added with `ionic 
 Make sure you have added the platform and used `ionic serve` at least once (to compile sass), and added the platform using either `ionic platform add ios` for iOS, or `ionic platform add android` for android.
 
 #### iOS (Mac Only)
-To run on iOS, use `ionic run ios`.
+To run on iOS, use `ionic build ios && ionic run ios`.
 
 #### Android
-Make sure you have the platform added, and use `ionic run android`.
+Make sure you have the platform added, and use `ionic build android && ionic run android`.
