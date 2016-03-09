@@ -17,8 +17,14 @@
     "jshint-stylish": "^2.1.0",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    {
+      "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
+      "id": "cordova-plugin-whitelist"
+    }
+  ],
   "cordovaPlatforms": [
-    "ios"
+    "ios",
+    "android"
   ]
 }
