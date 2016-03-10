@@ -15,3 +15,6 @@ Next, navigate to the `/app` directory, and run `npm install`. This will install
 ## Development
 
 See the [ionic framework's instructions](http://ionicframework.com/docs/guide/testing.html) on running an application.
+
+## Backend
+Our app queries a backend located on a Digital Ocean droplet which uses Flask and MongoDB to return and submit scouting data.
