@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:5000/api/";
+var API_URL = "http://104.131.162.47:5000/api/";
 
 angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
@@ -84,7 +84,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 		confirmPopup.then(function(res) {
 			if(res) {
 				$localStorage.deleteForms();
-				$state.transitionTo("tab.submit");
+				$scope.datas = $localStorage.getForms();
 				$ionicPopup.alert({
 					title: 'Database Emptied',
 					template: 'Database successfully emptied'
@@ -107,7 +107,6 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			});
 			$state.transitionTo("tab.submit");
 		}
-		// fill in and stuff
 	});
 })
 
