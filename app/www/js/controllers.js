@@ -22,7 +22,9 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			$http.get(API_URL+"forms").then(function(response) {
 				console.log("Sucess in get")
 				console.log(JSON.stringify(response));
-				response.data.forEach(function(form) { $localStorage.addForm(form); } );
+				response.data.forEach(function(form) { 
+					$localStorage.addForm(form); 
+				});
 			}, function(response) {
 				console.log("Error on get")
 				console.log(JSON.stringify(response));
@@ -81,7 +83,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 		});
 		confirmPopup.then(function(res) {
 			if(res) {
-				syncer.emptyLocal();
+				$localStorage.deleteForms();
 				$state.transitionTo("tab.submit");
 				$ionicPopup.alert({
 					title: 'Database Emptied',
