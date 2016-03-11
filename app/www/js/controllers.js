@@ -1,35 +1,33 @@
-var API_URL = "http://104.131.162.47/api/";
+var API_URL = "http://localhost:5000/api/";
 
 angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
 .controller('SyncCtrl', function($scope, $ionicPlatform, $localStorage, $http) {
 	$scope.sync = function() {
+		console.log("Syncing")
 		// Post forms
-		$http({
-			method: "POST",
-			url: API_URL+"forms",
-			data: { forms: $localStorage.getForms() }
-		}).then(function(response) {
-			console.log("Sucess");
-		}, function(response) {
-			console.log("Error");
-			console.log(JSON.stringify(response));
-		});
-
-		// Get forms
-		$http({
-			method: "GET",
-			url: API_URL+"forms"
-		}).then(function(forms) {
-			console.log("Sucess");
-			forms.forEach(function(form) { $localStorage.addForm(form); } );
-		}, function(response) {
-			console.log("Error");
-			console.log(JSON.stringify(response));
+		$ionicPlatform.ready(function() {
+			$http({
+				url: API_URL+"forms", 
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				data: JSON.stringify({ 'forms': $localStorage.getForms() })
+			}).then(function(response) {
+				console.log("Sucess");
+			}, function(response) {
+				console.log("Error on post")
+				console.log(JSON.stringify(response));
+			});
+			$http.get("http://google.com").then(function(response) {
+				console.log(response);
+				response.data.forEach(function(form) { $localStorage.addForm(form); } );
+			}, function(response) {
+				console.log("Error on get")
+				console.log(response)
+				console.log(JSON.stringify(response));
+			});
 		});
 	};
-
-	$scope.sync();
 })
 
 .controller('SubmitCtrl', function($scope, $state, $ionicPopup, $localStorage) {
