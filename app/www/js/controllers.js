@@ -2,7 +2,22 @@ var API_URL = "http://104.131.162.47:5000/api/";
 
 angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
-.controller('SyncCtrl', function($scope, $ionicPlatform, $localStorage, $http) {
+.controller('SyncCtrl', function($scope, $ionicPlatform, $localStorage, $ionicPopup, $http) {
+
+	function syncSucess() {
+		$ionicPopup.alert({
+			title: 'Done',
+			template: 'Finished syncing.'
+		});
+	}
+
+	function syncFail() {
+		$ionicPopup.alert({
+			title: 'Failure',
+			template: 'Syncing failed. Are you connected to the internet?'
+		});
+	}
+
 	$scope.sync = function() {
 		console.log("Syncing")
 		// Post forms
@@ -14,20 +29,22 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				data: JSON.stringify({ 'forms': $localStorage.getForms() })
 			}).then(function(response) {
 				console.log("Sucess");
+				$http.get(API_URL+"forms").then(function(response) {
+					console.log("Sucess in get")
+					response.data.forEach(function(form) { 
+						$localStorage.addForm(form); 
+					});
+
+					syncSucess();
+				}, function(response) {
+					console.log("Error on get")
+					console.log(JSON.stringify(response));
+					syncFail();
+				});
 			}, function(response) {
 				console.log("Error on post")
 				console.log(JSON.stringify(response));
-			});
-
-			$http.get(API_URL+"forms").then(function(response) {
-				console.log("Sucess in get")
-				console.log(JSON.stringify(response));
-				response.data.forEach(function(form) { 
-					$localStorage.addForm(form); 
-				});
-			}, function(response) {
-				console.log("Error on get")
-				console.log(JSON.stringify(response));
+				syncFail();
 			});
 		});
 	};
