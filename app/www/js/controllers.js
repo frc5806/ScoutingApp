@@ -18,12 +18,13 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				console.log("Error on post")
 				console.log(JSON.stringify(response));
 			});
-			$http.get("http://google.com").then(function(response) {
-				console.log(response);
+
+			$http.get(API_URL+"forms").then(function(response) {
+				console.log("Sucess in get")
+				console.log(JSON.stringify(response));
 				response.data.forEach(function(form) { $localStorage.addForm(form); } );
 			}, function(response) {
 				console.log("Error on get")
-				console.log(response)
 				console.log(JSON.stringify(response));
 			});
 		});

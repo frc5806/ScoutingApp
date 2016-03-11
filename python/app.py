@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, request, render_template
 from flask.ext.cors import CORS
 from pymongo import MongoClient
 import json
+from bson.json_util import dumps
 
 app = Flask(__name__)
 CORS(app)
@@ -13,10 +14,11 @@ db = client.ScoutingApp
 def team():
 	print()
 	if request.method == 'GET':
-		return str([item for item in db.team.find()])
+		return dumps([item for item in db.team.find()])
 	else:
+		print(request.get_json()['forms'])
 		for form in request.get_json()['forms']:
-			if 'teamNumber' in form and 'teamName' in form and db.team.find_one({teamnumber: form['teamNumber']}) == None:
+			if 'teamnumber' in form and 'teamname' in form and db.team.find_one({'teamnumber': form['teamnumber']}) == None:
 				db.team.insert(form)
 		return "Sucess"
 
