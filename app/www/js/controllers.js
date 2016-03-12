@@ -67,10 +67,13 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			rock: false,
 			rough: false,
 			terrain: false,
+			low: false,
 			type: "Neutral",
+			pos: "Middle",
 			auto: "",
 			testing: "",
-			match: ""
+			match: "",
+			comments: ""
 		};
 	};
 	console.log($localStorage.getForms());

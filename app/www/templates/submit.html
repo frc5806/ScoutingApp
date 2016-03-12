@@ -22,6 +22,7 @@
 				<ion-toggle ng-model="teamData.sally" toggle-class="toggle-calm">Can cross the sally port</ion-toggle>
 				<ion-toggle ng-model="teamData.rock" toggle-class="toggle-calm">Can cross the rock wall</ion-toggle>
 				<ion-toggle ng-model="teamData.rough" toggle-class="toggle-calm">Can cross the rough terrain</ion-toggle>
+				<ion-toggle ng-model="teamData.low" toggle-class="toggle-calm">Can go under the low bar</ion-toggle>
 
 				<label class="item">
 					<span class="input-label">Type of robot</span>
@@ -31,17 +32,31 @@
 				</label>
 
 				<label class="item">
+					<span class="input-label">Ideal starting position</span>
+					<ion-radio ng-model="teamData.pos" ng-value="'Left'">Left</ion-radio>
+					<ion-radio ng-model="teamData.pos" ng-value="'Middle'">Middle</ion-radio>
+					<ion-radio ng-model="teamData.pos" ng-value="'Right'">Right</ion-radio>
+				</label>
+
+
+				<label class="item">
 					<span class="input-label">Describe the autonomous</span>
-					<textarea ng-model="teamData.auto" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.auto" placeholder="The best ever, scores 15 points"></textarea>
 				</label>
 				<label class="item">
 					<span class="input-label">Describe their testing process/robot reliability</span>
-					<textarea ng-model="teamData.testing" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.testing" placeholder="Have a test bot"></textarea>
 				</label>
-				<label class="item" id="textarea">
+				<label class="item">
 					<span class="input-label">Describe match performance</span>
-					<textarea ng-model="teamData.match" placeholder="The best ever"></textarea>
+					<textarea ng-model="teamData.match" placeholder="Won every match, scored 9090901934132847982134 points"></textarea>
 				</label>
+
+				<label class="item">
+					<span class="input-label">Other comments</span>
+					<textarea ng-model="teamData.comments" placeholder="These are some comments"></textarea>
+				</label>
+
 				<label class="item">
 					<button class="button button-block button-positive" type="submit">Submit</button>
 				</label>
