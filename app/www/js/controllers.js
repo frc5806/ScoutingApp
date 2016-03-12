@@ -20,7 +20,6 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
 	$scope.sync = function() {
 		console.log("Syncing");
-		// Post forms
 		$ionicPlatform.ready(function() {
 			$http({
 				url: API_URL+"forms",
@@ -45,6 +44,22 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				console.log("Error on post");
 				console.log(JSON.stringify(response));
 				syncFail();
+			});
+
+			var deploy = new Ionic.Deploy();
+
+			// Check Ionic Deploy for new code
+			deploy.check().then(function(hasUpdate) {
+				console.log('Ionic Deploy: Update available: ' + hasUpdate);
+				deploy.update().then(function(res) {
+					console.log('Ionic Deploy: Update Success! ', res);
+				}, function(err) {
+					console.log('Ionic Deploy: Update error! ', err);
+				}, function(prog) {
+					console.log('Ionic Deploy: Progress... ', prog);
+				});
+			}, function(err) {
+				console.error('Ionic Deploy: Unable to check for updates', err);
 			});
 		});
 	};
