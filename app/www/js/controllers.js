@@ -19,7 +19,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 	}
 
 	$scope.sync = function() {
-		console.log("Syncing")
+		console.log("Syncing");
 		// Post forms
 		$ionicPlatform.ready(function() {
 			$http({
@@ -30,19 +30,19 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			}).then(function(response) {
 				console.log("Sucess");
 				$http.get(API_URL+"forms").then(function(response) {
-					console.log("Sucess in get")
+					console.log("Sucess in get");
 					response.data.forEach(function(form) {
 						$localStorage.addForm(form);
 					});
 
 					syncSucess();
 				}, function(response) {
-					console.log("Error on get")
+					console.log("Error on get");
 					console.log(JSON.stringify(response));
 					syncFail();
 				});
 			}, function(response) {
-				console.log("Error on post")
+				console.log("Error on post");
 				console.log(JSON.stringify(response));
 				syncFail();
 			});
@@ -75,7 +75,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			match: "",
 			comments: ""
 		};
-	};
+	}
 	console.log($localStorage.getForms());
 	$scope.doSubmit = function(form) {
 		try {
@@ -114,7 +114,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 	$scope.$on('$ionicView.enter', function(e) {
 		if ($state.is("tab.submitSomething")) {
 			$scope.notDefault = true;
-			$scope.teamData = $localStorage.getForm($stateParams.teamNum)
+			$scope.teamData = $localStorage.getForm($stateParams.teamNum);
 			console.log($scope.teamData);
 		} else {
 			$scope.notDefault = false;

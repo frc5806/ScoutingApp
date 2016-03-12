@@ -42,7 +42,7 @@ angular.module('ScoutingApp.services', [])
 		getForm: function(teamNumber) {
 			return this.getForms().filter(function(form) {
 				return teamNumber == form.teamnumber;
-			})[0];;
+			})[0];
 		}
 	};
 });
