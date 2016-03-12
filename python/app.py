@@ -21,7 +21,7 @@ def team():
 			if 'teamnumber' in form and 'teamname' in form and db.team.find_one({'teamnumber': form['teamnumber']}) == None:
 				db.team.insert(form)
 			else:
-				db.team.replaceOne({'teamnumber': form['teamnumber']} , form)
+				db.team.replace_one({'teamnumber': form['teamnumber']} , form)
 		return "Sucess"
 
 if __name__ == "__main__":
