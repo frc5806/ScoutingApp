@@ -50,7 +50,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 	};
 })
 
-.controller('SubmitCtrl', function($scope, $state, $ionicPopup, $localStorage) {
+.controller('SubmitCtrl', function($scope, $state, $ionicPopup, $localStorage, $stateParams) {
 	function startingTeamData() {
 		return {
 			teamname: "",
@@ -67,7 +67,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			rock: false,
 			rough: false,
 			terrain: false,
-			low: false,
+			lowBar: false,
 			type: "Neutral",
 			pos: "Middle",
 			auto: "",
@@ -80,7 +80,27 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 	$scope.doSubmit = function(form) {
 		try {
 			console.log(form);
-			$localStorage.addForm(form);
+			if ($state.notDefault || $localStorage.getForm($scope.teamData.teamnumber)) {
+				var confirmPopup = $ionicPopup.confirm({
+					title: 'Overwrite?',
+					template: 'This will overwrite an existing review.'
+				});
+				confirmPopup.then(function(res) {
+					if(res) {
+						$ionicPopup.alert({
+							title: 'Overwritten',
+							template: 'Database successfully emptied'
+						});
+						$localStorage.addForm(form);
+					} else {
+						$ionicPopup.alert({
+							title: 'Not overwritten'
+						});
+					}
+				});
+			} else {
+				$localStorage.addForm(form);
+			}
 			$scope.teamData = startingTeamData();
 		} catch (err) {
 			console.log(err);
@@ -91,7 +111,16 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 		}
 	};
 
-	$scope.teamData = startingTeamData();
+	$scope.$on('$ionicView.enter', function(e) {
+		if ($state.is("tab.submitSomething")) {
+			$scope.notDefault = true;
+			$scope.teamData = $localStorage.getForm($stateParams.teamNum)
+			console.log($scope.teamData);
+		} else {
+			$scope.notDefault = false;
+			$scope.teamData = startingTeamData();
+		}
+	});
 })
 
 .controller('DataCtrl', function($scope, $state, $ionicPopup, $localStorage) {

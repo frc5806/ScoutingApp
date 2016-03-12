@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'ScoutingApp.controllers', 'Sco
 		}
 	})
 
+		.state('tab.submitSomething', {
+			url: '/submit/:teamNum',
+			views: {
+				'tab-submit': {
+					templateUrl: 'templates/submit.html',
+					controller: 'SubmitCtrl'
+				}
+			}
+		})
+
 	.state('tab.submit', {
 		url: '/submit',
 		views: {

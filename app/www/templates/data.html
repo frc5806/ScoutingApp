@@ -3,7 +3,7 @@
 	<ion-list>
 		<ion-item class="item item-button-right" ng-repeat="team in datas" href="#/tab/data/{{team.teamnumber}}">
 			{{team.teamnumber}} <strong>{{team.teamname}}</strong>
-			<button ng-click="editForm('{{team.teamname}}')" class="button button-positive">Edit</button>
+			<a href="#/tab/submit/{{team.teamnumber}}" class="button button-positive">Edit</a>
 		</ion-item>
 	</ion-list>
 	<button ng-click="emptyStorage()" class="button button-assertive button-block">Empty Local Database</button>
