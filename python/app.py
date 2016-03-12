@@ -14,12 +14,12 @@ db = client.ScoutingApp
 def team():
 	print()
 	if request.method == 'GET':
-		return dumps([item for item in db.team.find()])
+		return dumps([item for item in db.team.find({}, {"_id": False})])
 	else:
 		print(request.get_json()['forms'])
 		for form in request.get_json()['forms']:
 			if 'teamnumber' in form and 'teamname' in form and db.team.find_one({'teamnumber': form['teamnumber']}) == None:
-				db.team.insert(form)
+				db.team.insert_one(form)
 			else:
 				db.team.replace_one({'teamnumber': form['teamnumber']} , form)
 		return "Sucess"
