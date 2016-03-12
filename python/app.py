@@ -20,6 +20,8 @@ def team():
 		for form in request.get_json()['forms']:
 			if 'teamnumber' in form and 'teamname' in form and db.team.find_one({'teamnumber': form['teamnumber']}) == None:
 				db.team.insert(form)
+			else
+				db.team.replaceOne({'teamnumber': form['teamnumber']} , form)
 		return "Sucess"
 
 if __name__ == "__main__":

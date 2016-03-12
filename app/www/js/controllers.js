@@ -23,7 +23,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 		// Post forms
 		$ionicPlatform.ready(function() {
 			$http({
-				url: API_URL+"forms", 
+				url: API_URL+"forms",
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				data: JSON.stringify({ 'forms': $localStorage.getForms() })
@@ -31,8 +31,8 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				console.log("Sucess");
 				$http.get(API_URL+"forms").then(function(response) {
 					console.log("Sucess in get")
-					response.data.forEach(function(form) { 
-						$localStorage.addForm(form); 
+					response.data.forEach(function(form) {
+						$localStorage.addForm(form);
 					});
 
 					syncSucess();

@@ -24,7 +24,7 @@ angular.module('ScoutingApp.services', [])
 			}
 
 			var forms = this.getForms();
-			
+
 			// Remove any duplicates
 			var duplicateForms = forms.filter(function(f){return f.teamnumber == form.teamnumber;});
 			if(duplicateForms.length > 0) {
@@ -32,7 +32,7 @@ angular.module('ScoutingApp.services', [])
 					forms.splice(forms.indexOf(f), 1);
 				});
 			}
-			
+
 			forms.push(form);
 			set(FORM_KEY, forms);
 		},
