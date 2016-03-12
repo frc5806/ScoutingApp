@@ -20,8 +20,8 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
 	var deploy = new Ionic.Deploy();
 
-	 // Update app code with new release from Ionic Deploy
-	 function doUpdate() {
+	// Update app code with new release from Ionic Deploy
+	function doUpdate() {
 		deploy.update().then(function(res) {
 			console.log('Ionic Deploy: Update Success! ', res);
 		}, function(err) {
@@ -30,19 +30,6 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 			console.log('Ionic Deploy: Progress... ', prog);
 		});
 	};
-
-	 // Check Ionic Deploy for new code
-	 function checkForUpdates() {
-	   console.log('Ionic Deploy: Checking for updates');
-	   deploy.check().then(function(hasUpdate) {
-		 console.log('Ionic Deploy: Update available: ' + hasUpdate);
-		 $scope.hasUpdate = hasUpdate;
-		 return hasUpdate;
-
-	   }, function(err) {
-		 console.error('Ionic Deploy: Unable to check for updates', err);
-	   });
-	 }
 
 	$scope.sync = function() {
 		console.log("Syncing");
@@ -71,7 +58,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				console.log(JSON.stringify(response));
 				syncFail();
 			});
-			if (checkForUpdates()) doUpdate();
+			doUpdate();
 
 		});
 	};

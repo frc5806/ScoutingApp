@@ -27,10 +27,13 @@
       "locator": "https://github.com/apache/cordova-plugin-whitelist.git",
       "id": "cordova-plugin-whitelist"
     },
-    "ionic-plugin-deploy"
+    {
+      "locator": "https://github.com/ace68723/ionic-plugin-deploy",
+      "id": "ionic-plugin-deploy"
+    }
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }
