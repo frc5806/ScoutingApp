@@ -2,7 +2,7 @@
 	<ion-content>
 		<div class="list card">
 			<div class="item">
-				<h1>{{data.teamname}}</h1>
+				<h1>{{data.teamname}}, ranked #{{data.rank}}</h1>
 				<h2>{{data.teamnumber}}</h2>
 				<p>Robot Type: {{data.type}}</p>
 			</div>
@@ -36,6 +36,7 @@
 				Can cross the sally port: <i class="icon ion-checkmark" ng-show="data.sally"></i><i class="ion-close" ng-hide="data.sally"></i><br>
 				Can cross the rock wall: <i class="icon ion-checkmark" ng-show="data.rock"></i><i class="ion-close" ng-hide="data.rock"></i><br>
 				Can cross the rough terrain: <i class="icon ion-checkmark" ng-show="data.rough"></i><i class="ion-close" ng-hide="data.rough"></i><br>
+				Can go under the low bar: <i class="icon ion-checkmark" ng-show="data.lowBar"></i><i class="ion-close" ng-hide="data.lowBar"></i><br>
 			</div>
 		</div>
 	</ion-content>

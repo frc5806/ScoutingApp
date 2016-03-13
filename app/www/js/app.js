@@ -71,15 +71,25 @@ angular.module('starter', ['ionic','ionic.service.core', 'ngCordova', 'ScoutingA
 		}
 	})
 
-		.state('tab.submitSomething', {
-			url: '/submit/:teamNum',
-			views: {
-				'tab-submit': {
-					templateUrl: 'templates/submit.html',
-					controller: 'SubmitCtrl'
-				}
+	.state('tab.rankings', {
+		url: '/rankings',
+		views: {
+			'tab-rankings': {
+				templateUrl: 'templates/rankings.html',
+				controller: 'RankingCtrl'
 			}
-		})
+		}
+	})
+
+	.state('tab.submitSomething', {
+		url: '/submit/:teamNum',
+		views: {
+			'tab-submit': {
+				templateUrl: 'templates/submit.html',
+				controller: 'SubmitCtrl'
+			}
+		}
+	})
 
 	.state('tab.submit', {
 		url: '/submit',

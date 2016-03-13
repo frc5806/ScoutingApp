@@ -1,0 +1,9 @@
+<ion-view view-title="Database">
+  <ion-content>
+	<ion-list>
+		<ion-item class="item item-button-right" ng-repeat="team in datas" href="#/tab/data/{{team.teamnumber}}">
+			<strong>#{{team.rank}}</strong> {{team.teamname}}, {{team.teamnumber}}
+		</ion-item>
+	</ion-list>
+  </ion-content>
+</ion-view>

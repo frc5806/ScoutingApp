@@ -58,6 +58,7 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 				console.log(JSON.stringify(response));
 				syncFail();
 			});
+			$localStorage.getRankings(); // to update standings
 			doUpdate();
 
 		});
@@ -163,6 +164,19 @@ angular.module('ScoutingApp.controllers', ['ionic', 'ngCordova'])
 
 	$scope.$on('$ionicView.enter', function(e) {
 		$scope.datas = $localStorage.getForms();
+		if ($scope.datas == -2) {
+			$ionicPopup.alert({
+				title: 'No database entries',
+				template: 'Please submit at least one entry'
+			});
+			$state.transitionTo("tab.submit");
+		}
+	});
+})
+
+.controller('RankingCtrl', function($scope, $state, $ionicPopup, $localStorage) {
+	$scope.$on('$ionicView.enter', function(e) {
+		$scope.datas = $localStorage.getRankings();
 		if ($scope.datas == -2) {
 			$ionicPopup.alert({
 				title: 'No database entries',
