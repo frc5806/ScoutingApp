@@ -25,7 +25,6 @@ angular.module('ScoutingApp.services', [])
 						}
 					}
 				}
-				set(FORM_KEY, teamArray);
 				console.log(teamArray);
 			}, function(response) {
 				console.log("Error on get");
