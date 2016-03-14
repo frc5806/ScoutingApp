@@ -5,7 +5,40 @@ var HEADERS = {"If-Modified-Since": ""}
 
 angular.module('ScoutingApp.services', [])
 
-.service('$localStorage', function($window, $http) {
+.service('$rankingData', function($http) {
+	return {
+		calcRank: function(teamArray) {
+			$http({
+				method: "GET",
+				url: BLUE_ALLIANCE,
+				config: HEADERS
+			}).then(function(response) {
+				console.log("Sucess in get");
+				var rankingData = response.data;
+				for (var i = 0; i < teamArray.length; i++) {
+					for (var j = 0; j < response.data.length; i++) {
+						if (response.data[j][1] == teamArray[i].teamnumber) {
+							teamArray[i].rank = response.data[j][0];
+							console.log(response.data[j][1])
+						} else {
+							teamArray[i].rank = "Unknown";
+						}
+					}
+				}
+				set(FORM_KEY, teamArray);
+				console.log(teamArray);
+			}, function(response) {
+				console.log("Error on get");
+				console.log(JSON.stringify(response));
+			});
+			console.log("Returning: ");
+			console.log(teamArray);
+			return teamArray;
+		}
+	};
+})
+
+.service('$localStorage', function($window, $rankingData) {
 	var FORM_KEY = "forms";
 
 	var set = function(key, value) {
@@ -15,36 +48,6 @@ angular.module('ScoutingApp.services', [])
 		return JSON.parse($window.localStorage[key] || defaultValue);
 	};
 
-	var calcRank = function() {
-		var teamArray = get(FORM_KEY, '[]');
-		$http({
-			method: "GET",
-			url: BLUE_ALLIANCE,
-			config: HEADERS
-		}).then(function(response) {
-			console.log("Sucess in get");
-			var rankingData = response.data;
-			for (var i = 0; i < teamArray.length; i++) {
-				for (var j = 0; j < response.data.length; i++) {
-					if (response.data[j][1] == teamArray[i].teamnumber) {
-						teamArray[i].rank = response.data[j][0];
-						console.log(response.data[j][1])
-					} else {
-						teamArray[i].rank = "Unknown";
-					}
-				}
-			}
-			set(FORM_KEY, teamArray);
-			console.log(teamArray);
-		}, function(response) {
-			console.log("Error on get");
-			console.log(JSON.stringify(response));
-		});
-		console.log("Returning: ");
-		console.log(teamArray);
-		return teamArray;
-
-	};
 	return {
 		getForms: function() {
 			return get(FORM_KEY, '[]').sort(function(a,b) {
@@ -52,10 +55,9 @@ angular.module('ScoutingApp.services', [])
 			});
 		},
 		getRankings: function() {
-			calcRank()
-			return get(FORM_KEY, '[]').sort(function(a,b) {
+			return $rankingData.calcRank(get(FORM_KEY, '[]').sort(function(a,b) {
 				return a.rank - b.rank;
-			})
+			}))
 		},
 		addForm: function(form) {
 			if (form.teamnumber === "" || form.teamname === "") {
